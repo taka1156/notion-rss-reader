@@ -1,9 +1,3 @@
-/** フィード設定 */
-export interface FeedConfig {
-  name: string;
-  url: string;
-}
-
 /** Notion日付の構造 */
 export interface NotionDate {
   start: string;
@@ -76,10 +70,3 @@ export interface ParsedFeedRoot {
   channel?: { item?: RssItem | RssItem[] };
   RDF?: { item?: RssItem | RssItem[] };
 }
-
-export interface FeedParserResult {
-  entries: (AtomEntry | RssItem)[];
-  format: "atom" | "rss" | "rdf" | "unknown";
-}
-
-

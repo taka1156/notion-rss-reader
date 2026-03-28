@@ -1,7 +1,11 @@
 import 'dotenv/config'
 import { setLogLevel, info } from "./utils/logger";
-import { init } from './init';
-import { NotionDataSourceIds } from './types/notion';
+import { validateEnv } from "./config/env";
+import { NotionClient } from "./infrastructure/notion/notionClient";
+import { NotionFeedRepository } from "./infrastructure/notion/notionFeedRepository";
+import { HTTPRSSFetcher } from "./infrastructure/rss/rssFetcher";
+import { XMLRSSParser } from "./infrastructure/rss/rssParser";
+import { SyncFeedUseCaseImpl } from "./application/syncFeedUseCase";
 
 async function main() {
   info("Starting feed processor...");
@@ -10,16 +14,24 @@ async function main() {
   const debugMode = process.argv.includes("--debug") || process.env.DEBUG === "true";
   setLogLevel(debugMode ? "debug" : "info");
 
-  // 環境変数の読み込みと検証
-  const NOTION_TOKEN = process.env.NOTION_TOKEN;
-  const NOTION_DS_IDS: NotionDataSourceIds = {
-    FEEDER: process.env.NOTION_FEEDER_DATASOURCE_ID || "",
-    READER: process.env.NOTION_READER_DATASOURCE_ID || ""
-  };
+  // 環境変数の検証
+  const env = validateEnv();
 
-  const processor = init(NOTION_TOKEN!, NOTION_DS_IDS);
+  // インフラ層の初期化
+  const notionClient = new NotionClient(env.NOTION_TOKEN);
+  const notionRepo = new NotionFeedRepository(
+    notionClient,
+    env.NOTION_FEEDER_DATASOURCE_ID,
+    env.NOTION_READER_DATASOURCE_ID
+  );
+  const rssFetcher = new HTTPRSSFetcher();
+  const rssParser = new XMLRSSParser();
 
-  await processor.execute();
+  // ユースケースの初期化
+  const useCase = new SyncFeedUseCaseImpl(notionRepo, rssFetcher, rssParser);
+
+  // 実行
+  await useCase.execute();
 
   info("Feed processing completed.");
 }

@@ -1,49 +1,65 @@
 # notion-rss-reader
 
+A simple RSS reader for Notion with clean DDD architecture.
 
-1. qiitaやzennのRSSやatomリンクをnotionのfeedデータベースから拾ってください
-2. 取得した結果をreaderの形式に合うようにデータ整形します。
-3. notionのreaderのテーブルに追加します
+## Overview
 
+This application synchronizes RSS/Atom feeds from Notion database and saves articles to another Notion database.
 
-feederのテーブル形式(例)
-|Name| rss or atom URL|
-|---|---|
-|Qiita トレンド| https://qiita.com/popular-items/feed.atom|
-|Zenn トレンド| https://zenn.dev/feed|
+## Architecture
 
+This project follows Domain-Driven Design (DDD) principles:
 
-readerのテーブル形式(例)
-|title|URL|createdAt|updatedAt|source|
-|---|---|---|---|---|
-|記事タイトル | https://qiita.com/username/article | 2024-01-01|2024-06-01|Qiita トレンド|
-|記事タイトル | https://zenn.dev/username/article | 2024-01-01|2024-05-01|Zenn トレンド|
+- **Domain**: Business entities and rules (Feed, Article)
+- **Application**: Use cases (SyncFeedUseCase)
+- **Infrastructure**: External concerns (Notion API, RSS fetching/parsing)
 
-## Notion連携設定
+## Features
 
-### feeder（フィード設定）
-- Name: テキストプロパティ（例：Qiita トレンド）
-- rss or atom URL: URLプロパティ（例：https://qiita.com/popular-items/feed.atom）
+- Fetches RSS/Atom feeds from configured sources
+- Parses and normalizes article data
+- Saves new articles to Notion database
+- Handles errors gracefully with retries
+- Environment variable validation
 
-`getFeedConfigs()`では次のプロパティ名を順に検索します。
-- `Name`（優先）
-- `名前`
+## Notion Database Setup
 
-URLフィールドは次の名称を順に検索します。
-- `rss or atom URL`（優先）
-- `URL`
-- `Feed`
+### Feeder Database (Feed configurations)
+| Name | URL |
+|------|-----|
+| Qiita Trends | https://qiita.com/popular-items/feed.atom |
+| Zenn Trends | https://zenn.dev/feed |
 
-### reader（取得結果）
-- title: タイトルプロパティ
-- URL: URLプロパティ
-- createdAt: 日付プロパティ（start）
-- updatedAt: 日付プロパティ（start）
-- source: リッチテキストプロパティ
+### Reader Database (Articles)
+| Title | URL | Created At | Updated At | Source |
+|-------|-----|------------|------------|--------|
+| Article Title | https://example.com | 2024-01-01 | 2024-01-01 | Qiita Trends |
 
-`createReaderPage()`は上記プロパティへ書き込みます。
+## Environment Variables
 
-### 環境変数
-- NOTION_TOKEN
-- NOTION_FEED_DB_ID
-- NOTION_READER_DB_ID
+Create a `.env` file with:
+
+```
+NOTION_TOKEN=your_notion_token
+NOTION_FEEDER_DATASOURCE_ID=your_feeder_database_id
+NOTION_READER_DATASOURCE_ID=your_reader_database_id
+```
+
+## Usage
+
+```bash
+npm install
+npm run build
+npm start
+```
+
+For debug mode:
+```bash
+npm run start-dev
+```
+
+## Testing
+
+```bash
+npm test
+```
