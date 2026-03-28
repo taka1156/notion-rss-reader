@@ -41,8 +41,8 @@ Create a `.env` file with:
 
 ```
 NOTION_TOKEN=your_notion_token
-NOTION_FEEDER_DATASOURCE_ID=your_feeder_database_id
-NOTION_READER_DATASOURCE_ID=your_reader_database_id
+NOTION_FEEDER_DATASOURCE_ID=your_feeder_datasource_id
+NOTION_READER_DATASOURCE_ID=your_reader_datasource_id
 ```
 
 ## Usage
