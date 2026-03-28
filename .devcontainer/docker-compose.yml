@@ -1,0 +1,8 @@
+services:
+  app:
+    build: .
+    tty: true
+    volumes:
+      - ../:/workspace
+    environment:
+      - WATCHPACK_POLLING=true
