@@ -4,6 +4,8 @@
   "description": "A simple RSS reader for Notion",
   "main": "dist/index.js",
   "scripts": {
+    "check-package-manager": "node -e \"if (process.env.npm_execpath && process.env.npm_execpath.includes('npm')) { console.error('npm は禁止です。yarn を使ってください。'); process.exit(1); } else { console.log('yarn で問題ありません。'); }\"",
+    "preinstall": "npm run check-package-manager",
     "build": "tsc",
     "start": "ts-node src/index.ts",
     "start-dev": "ts-node src/index.ts --debug",

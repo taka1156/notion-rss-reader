@@ -1,4 +1,4 @@
-import dotenv from "dotenv";
+import 'dotenv/config'
 import { setDebug, info, warn, error } from "./utils/logger";
 import { NotionClient } from "./services/NotionClient";
 import fetch from "cross-fetch";
@@ -11,8 +11,6 @@ import {
   NotionDatabaseQueryResult,
   NotionReaderQueryResult,
 } from "./types/notion";
-
-dotenv.config();
 
 // debugモードの判定と設定
 const debugMode = process.argv.includes("--debug") || process.env.DEBUG === "true";
