@@ -1,14 +1,11 @@
 import dotenv from "dotenv";
-import { Client } from "@notionhq/client";
+import { setDebug, info, warn, error } from "./utils/logger";
+import { NotionClient } from "./services/NotionClient";
 import fetch from "cross-fetch";
-import { XMLParser } from "fast-xml-parser";
+import { parseFeedXml, toNotionDate } from "./utils/format";
 import {
   FeedConfig,
   FeedEntry,
-  XmlTextNode,
-  AtomEntry,
-  RssItem,
-  ParsedFeedRoot,
 } from "./types/common";
 import {
   NotionDatabaseQueryResult,
@@ -17,136 +14,35 @@ import {
 
 dotenv.config();
 
+// debugモードの判定と設定
+const debugMode = process.argv.includes("--debug") || process.env.DEBUG === "true";
+setDebug(debugMode);
+
+// 環境変数の読み込みと検証
 const NOTION_TOKEN = process.env.NOTION_TOKEN;
-const NOTION_FEED_DB_ID =
-  process.env.NOTION_FEED_DB_ID ||
-  process.env.NOTION_FEEDER_DATABASE_ID ||
-  process.env.NOTION_FEED_DATABASE_ID;
-const NOTION_READER_DB_ID =
-  process.env.NOTION_READER_DB_ID ||
-  process.env.NOTION_READER_DATABASE_ID ||
-  process.env.NOTION_READ_DATABASE_ID;
+const NOTION_FEED_DB_ID = process.env.NOTION_FEED_DATABASE_ID;
+const NOTION_READER_DB_ID = process.env.NOTION_READ_DATABASE_ID;
 
-console.log("NOTION_TOKEN", Boolean(NOTION_TOKEN));
-console.log("NOTION_FEED_DB_ID", NOTION_FEED_DB_ID);
-console.log("NOTION_READER_DB_ID", NOTION_READER_DB_ID);
+info("NOTION_TOKEN", Boolean(NOTION_TOKEN));
+info("NOTION_FEED_DB_ID", NOTION_FEED_DB_ID);
+info("NOTION_READER_DB_ID", NOTION_READER_DB_ID);
 
+// 必要な環境変数が揃っているか確認
 if (!NOTION_TOKEN || !NOTION_FEED_DB_ID || !NOTION_READER_DB_ID) {
   throw new Error(
     "Please set NOTION_TOKEN and a valid feed/reader DB ID in environment variables."
   );
 }
 
-const notion = new Client({ auth: NOTION_TOKEN });
 const NOTION_API_BASE_URL = "https://api.notion.com/v1";
 
-function normalizeUrl(url: string): string {
-  return url.trim();
-}
+// NotionClientを初期化
+const nc = new NotionClient(NOTION_TOKEN);
 
-function toNotionDate(dateString?: string) {
-  if (!dateString) return null;
-  const d = new Date(dateString);
-  if (Number.isNaN(d.getTime())) return null;
-  return { start: d.toISOString().split("T")[0] };
-}
-
-function stringifyText(value: unknown): string {
-  if (value == null) return "";
-  if (typeof value === "string") return value.trim();
-  if (typeof value === "object") {
-    const textNode = value as XmlTextNode;
-    const text = textNode["#text"] || (value as any)["text"];
-    if (typeof text === "string") return text.trim();
-    return String(value).trim();
-  }
-  return String(value).trim();
-}
-
-function ensuresArray<T>(item: T | T[] | undefined): T[] {
-  if (item == null) return [];
-  return Array.isArray(item) ? item : [item];
-}
-
-function parseFeedXml(xmlText: string, sourceName: string): FeedEntry[] {
-  const parser = new XMLParser({
-    ignoreAttributes: false,
-    attributeNamePrefix: "",
-    textNodeName: "#text",
-  });
-
-  const root = parser.parse(xmlText) as ParsedFeedRoot;
-
-  let entries: Array<AtomEntry | RssItem> = [];
-
-  if (root.feed?.entry) {
-    entries = ensuresArray(root.feed.entry);
-  } else if (root.entry) {
-    entries = ensuresArray(root.entry);
-  } else if (root.rss?.channel?.item) {
-    entries = ensuresArray(root.rss.channel.item);
-  } else if (root.RDF?.item) {
-    entries = ensuresArray(root.RDF.item);
-  } else if (root.channel?.item) {
-    entries = ensuresArray(root.channel.item);
-  }
-
-  if (!entries.length) throw new Error("Unknown feed format; not Atom or RSS?");
-
-  return entries
-    .map<FeedEntry>((entry) => {
-      const atomEntry = entry as AtomEntry;
-      const rssItem = entry as RssItem;
-
-      const title = stringifyText(atomEntry.title ?? rssItem.title) || "Untitled";
-
-      let url = "";
-      const link = atomEntry.link ?? rssItem.link;
-
-      if (typeof link === "string") {
-        url = link;
-      } else if (Array.isArray(link)) {
-        const alt = link.find((item) => {
-          if (typeof item === "string") return false;
-          return item.rel === "alternate" || !item.rel;
-        });
-        if (alt) {
-          if (typeof alt === "string") {
-            url = alt;
-          } else {
-            url = alt.href || alt.url || "";
-          }
-        } else {
-          url = stringifyText(link[0]);
-        }
-      } else if (link && typeof link === "object") {
-        url = link.href || link.url || "";
-      }
-
-      if (!url && rssItem.guid) {
-        url = stringifyText(rssItem.guid);
-      }
-
-      const publishedAt =
-        stringifyText(atomEntry.published ?? rssItem.pubDate ?? rssItem["dc:date"]) ||
-        stringifyText(atomEntry.updated ?? rssItem.updated);
-
-      const updatedAt =
-        stringifyText(atomEntry.updated) ||
-        stringifyText(rssItem.updated) ||
-        publishedAt;
-
-      return {
-        title,
-        url: normalizeUrl(url),
-        publishedAt: publishedAt || undefined,
-        updatedAt: updatedAt || undefined,
-        sourceName,
-      };
-    })
-    .filter((e) => Boolean(e.url));
-}
-
+/**
+ * Notionのフィードデータベースからフィード設定を取得する
+ * @returns フィード設定の配列
+ */
 async function getFeedConfigs(): Promise<FeedConfig[]> {
   const feedConfigs: FeedConfig[] = [];
   let hasMore = true;
@@ -199,6 +95,12 @@ async function getFeedConfigs(): Promise<FeedConfig[]> {
   return feedConfigs;
 }
 
+/**
+ * 指定されたURLを持つ記事がリーダーデータベースに存在するか確認する
+ * @param url 記事のURL
+ * @returns 存在する場合はtrue、存在しない場合はfalse
+ * @throws クエリの実行に失敗した場合はエラーをスロー
+ */
 async function readerEntryExists(url: string): Promise<boolean> {
   const response = await fetch(
     `${NOTION_API_BASE_URL}/databases/${NOTION_READER_DB_ID}/query`,
@@ -229,8 +131,14 @@ async function readerEntryExists(url: string): Promise<boolean> {
   return (json.results?.length || 0) > 0;
 }
 
+/**
+ * Notionのリーダーデータベースに新しい記事ページを作成する
+ * @param entry 記事の情報を含むFeedEntryオブジェクト
+ * @returns 作成されたページの情報を含むPromise
+ * @throws ページの作成に失敗した場合はエラーをスロー
+ */
 async function createReaderPage(entry: FeedEntry): Promise<void> {
-  await notion.pages.create({
+  await nc.createPage({
     parent: { database_id: NOTION_READER_DB_ID! },
     properties: {
       title: {
@@ -253,22 +161,22 @@ async function createReaderPage(entry: FeedEntry): Promise<void> {
 }
 
 async function main() {
-  console.log("Fetching feed configs from Notion...");
+  info("Fetching feed configs from Notion...");
   const feedConfigs = await getFeedConfigs();
 
   if (!feedConfigs.length) {
-    console.log("No feed configs found in the feed database.");
+    info("No feed configs found in the feed database.");
     return;
   }
 
-  console.log(`Feed configs: ${feedConfigs.map((f) => `${f.name}: ${f.url}`).join(", ")}`);
+  info(`Feed configs: ${feedConfigs.map((f) => `${f.name}: ${f.url}`).join(", ")}`);
 
   for (const feed of feedConfigs) {
     try {
-      console.log(`Processing ${feed.name} (${feed.url})`);
+      info(`Processing ${feed.name} (${feed.url})`);
       const res = await fetch(feed.url);
       if (!res.ok) {
-        console.warn(`Failed to fetch ${feed.url}: ${res.status}`);
+        warn(`Failed to fetch ${feed.url}: ${res.status}`);
         continue;
       }
 
@@ -282,14 +190,14 @@ async function main() {
         if (exists) continue;
 
         await createReaderPage(entry);
-        console.log(`Added article: ${entry.title} (${entry.url})`);
+        info(`Added article: ${entry.title} (${entry.url})`);
       }
-    } catch (error) {
-      console.error(`Failed to process ${feed.name}`, error);
+    } catch (err) {
+      error(`Failed to process ${feed.name}`, err);
     }
   }
 
-  console.log("Done.");
+  info("Done.");
 }
 
 void main().catch((err) => {
