@@ -22,6 +22,8 @@ echo "ja_JP.UTF-8 UTF-8" > /etc/locale.gen
 locale-gen ja_JP.UTF-8
 ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
 dpkg-reconfigure -f noninteractive tzdata
+
+git config --global core.editor true
 EOF
 
 RUN <<-EOF
