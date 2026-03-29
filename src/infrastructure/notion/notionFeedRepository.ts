@@ -12,6 +12,7 @@ export interface NotionRepository {
   getFeedConfigs(): Promise<FeedConfig[]>;
   getExistingArticleUrls(): Promise<Set<string>>;
   saveArticle(entry: FeedEntry): Promise<CreatePageResponse>;
+  clearAllArticles(): Promise<void>;
 }
 
 /**
@@ -145,6 +146,37 @@ export class NotionFeedRepository implements NotionRepository {
       parent: { data_source_id: this.readerDatabaseId },
       properties,
     });
+  }
+
+  /**
+   * Notionの「Reader」データベース内の全記事をアーカイブ（リセット）する。
+   * - データベースのクエリをページネーションしながら全ページIDを収集し、順次アーカイブする。
+   */
+  async clearAllArticles(): Promise<void> {
+    let hasMore = true;
+    let nextCursor: string | null = null;
+
+    while (hasMore) {
+      const response: QueryDataSourceResponse = await this.client.queryDatabase(
+        {
+          data_source_id: this.readerDatabaseId,
+          page_size: 100,
+          result_type: 'page',
+          ...(nextCursor && { start_cursor: nextCursor }),
+        },
+      );
+
+      const pages = response.results.filter(
+        (item): item is PageObjectResponse => item.object === 'page',
+      );
+
+      for (const page of pages) {
+        await this.client.archivePage(page.id);
+      }
+
+      hasMore = response.has_more;
+      nextCursor = response.next_cursor ?? null;
+    }
   }
 
   private getPropertyValue<T>(page: PageObjectResponse, propertyName: string) {

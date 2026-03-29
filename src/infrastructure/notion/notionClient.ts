@@ -140,4 +140,18 @@ export class NotionClient {
   ): Promise<UpdatePageResponse> {
     return this.withRetry(() => this.client.pages.update(params), 'updatePage');
   }
+
+  /**
+   * Notionのページをアーカイブ（削除）する。
+   * @param pageId アーカイブするページのID
+   * @returns ページ更新のレスポンスデータ
+   * @throws エラーが発生した場合はログに記録し、リトライする。
+   * 最大リトライ回数を超えた場合はエラーをスローする。
+   */
+  async archivePage(pageId: string): Promise<UpdatePageResponse> {
+    return this.withRetry(
+      () => this.client.pages.update({ page_id: pageId, archived: true }),
+      'archivePage',
+    );
+  }
 }

@@ -15,6 +15,9 @@ async function main() {
     process.argv.includes('--debug') || process.env.DEBUG === 'true';
   setLogLevel(debugMode ? 'debug' : 'info');
 
+  // リセットオプションの判定
+  const resetMode = process.argv.includes('--reset');
+
   // 環境変数の検証
   const env = validateEnv();
 
@@ -33,6 +36,13 @@ async function main() {
 
   // ユースケースの初期化
   const useCase = new SyncFeedUseCaseImpl(notionRepo, rssFetcher, rssParser);
+
+  // リセットモードの場合、Reader内の全記事を削除してから同期
+  if (resetMode) {
+    info('Resetting Reader database...');
+    await notionRepo.clearAllArticles();
+    info('Reader database reset completed.');
+  }
 
   // 実行
   await useCase.execute();
