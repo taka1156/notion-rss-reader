@@ -4,13 +4,15 @@
   "description": "A simple RSS reader for Notion",
   "main": "dist/index.js",
   "scripts": {
-    "build": "tsc",
+    "prepare": "husky",
     "check": "tsc --noEmit",
+    "build": "tsc",
     "start": "ts-node src/index.ts",
     "start-dev": "ts-node src/index.ts --debug",
     "test": "vitest run",
-    "lint": "exec biome check src/**/*.ts && exec biome format src/**/*.ts",
-    "lint:fix": "exec biome lint src/**/*.ts && exec biome format --write src/**/*.ts"
+    "lint": "biome check src/**/*.ts",
+    "lint:fix": "biome check src/**/*.ts --write",
+    "pre-commit": "lint-staged && tsc --noEmit"
   },
   "dependencies": {
     "@notionhq/client": "^5.15.0",
@@ -20,9 +22,9 @@
   },
   "devDependencies": {
     "@biomejs/biome": "2.4.9",
-    "@types/jest": "^29.5.8",
     "@types/node": "^25.5.0",
-    "ts-jest": "^29.1.1",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.4.0",
     "ts-node": "^10.9.2",
     "typescript": "^6.0.2",
     "vitest": "^4.1.2"
