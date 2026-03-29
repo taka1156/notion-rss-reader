@@ -9,6 +9,14 @@ export interface SyncFeedUseCase {
   execute(): Promise<void>;
 }
 
+/**
+ * フィードを同期するユースケースの実装。
+ * - Notionからフィード設定と既存記事URLを取得する。
+ * - 各フィードのURLからRSS/Atomを取得し、記事アイテムをパースする。
+ * - 既存URLと照合して新しい記事のみをNotionに保存する。
+ * - 個別のフィードや記事でエラーが発生しても、処理は続行する。
+ * - ログを詳細に記録して、処理の進行状況やエラーを把握できるようにする。
+ */
 export class SyncFeedUseCaseImpl implements SyncFeedUseCase {
   constructor(
     private notionRepo: NotionRepository,
@@ -42,6 +50,19 @@ export class SyncFeedUseCaseImpl implements SyncFeedUseCase {
     }
   }
 
+  /**
+   *　フィードごとに記事を処理する。
+   * 個別のフィードでエラーが発生しても、他のフィードの処理は続行する。
+   * @param feed フィードの設定
+   * @param existingUrls 既に保存されている記事のURLセット。新しい記事を追加するたびに更新される。
+   * @returns Promise<void>
+   * @throws エラーが発生した場合はログに記録するが、処理は続行する。
+   * @description
+   * - フィードのURLからXMLを取得し、パースして記事アイテムのリストを得る。
+   * - 各アイテムをFeedEntryに変換し、既存のURLと照合して新しい記事のみを抽出する。
+   * - 新しい記事をNotionに保存し、保存成功したURLはexistingUrlsセットに追加する。
+   * - 個別の記事保存でエラーが発生しても、他の記事やフィードの処理は続行する。
+   */
   private async processFeed(
     feed: FeedConfig,
     existingUrls: Set<string>,
@@ -77,6 +98,13 @@ export class SyncFeedUseCaseImpl implements SyncFeedUseCase {
     }
   }
 
+  /**
+   * RSS/AtomのアイテムをFeedEntryに変換する。
+   * URLが抽出できない場合はnullを返す。
+   * @param item RSS/Atomのアイテム
+   * @param sourceName フィードの名前（sourceName）を引数として受け取るように変更
+   * @returns FeedEntryオブジェクト、URLが抽出できない場合はnull
+   */
   private convertToFeedEntry(
     item: FeedItem,
     sourceName: string,
@@ -111,6 +139,11 @@ export class SyncFeedUseCaseImpl implements SyncFeedUseCase {
     };
   }
 
+  /**
+   * RSS/AtomのアイテムからURLを抽出する。
+   * @param item RSS/Atomのアイテム
+   * @returns URL文字列、抽出できない場合は空文字
+   */
   private extractUrl(item: FeedItem): string {
     const link = item.link;
     if (typeof link === 'string') {
@@ -140,6 +173,11 @@ export class SyncFeedUseCaseImpl implements SyncFeedUseCase {
     return '';
   }
 
+  /**
+   * RSS/Atomのテキストノードを文字列に変換する。
+   * @param value 文字列、オブジェクト、またはnull/undefined
+   * @returns 文字列に変換された値。null/undefinedの場合は空文字。
+   */
   private stringifyText(value?: string | object | null): string {
     if (value == null) {
       return '';
@@ -158,6 +196,11 @@ export class SyncFeedUseCaseImpl implements SyncFeedUseCase {
     return String(value).trim();
   }
 
+  /**
+   * RSS/Atomの日付文字列をNotionのDateプロパティ形式に変換する。
+   * @param dateString RSS/Atomの日付文字列
+   * @returns NotionのDateプロパティ形式（{ start: 'YYYY-MM-DD' }）またはnull
+   */
   private toNotionDate(dateString?: string) {
     if (!dateString) {
       return null;

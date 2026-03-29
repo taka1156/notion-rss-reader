@@ -5,9 +5,23 @@ export interface RSSFetcher {
   fetchFeed(url: string): Promise<string>;
 }
 
+/**
+ * HTTPを使用してRSS/Atomフィードを取得する実装。
+ * - fetch APIを使用して指定されたURLからフィードのXMLテキストを取得する。
+ * - タイムアウトを設定して、応答が遅い場合にリクエストを中止する。
+ * - レスポンスが正常でない場合はエラーをスローする。
+ */
 export class HTTPRSSFetcher implements RSSFetcher {
   private timeout = 10000; // 10秒
 
+  /**
+   * 指定されたURLからRSS/Atomフィードを取得する。
+   * - タイムアウトを設定して、応答が遅い場合にリクエストを中止する。
+   * - レスポンスが正常でない場合はエラーをスローする。
+   * @param url フィードのURL
+   * @returns フィードのXMLテキスト
+   * @throws エラーが発生した場合はエラーをスローする。
+   */
   async fetchFeed(url: string): Promise<string> {
     try {
       const controller = new AbortController();

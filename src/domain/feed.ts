@@ -4,6 +4,7 @@ export interface FeedConfig {
   url: string;
 }
 
+/** Notionのフィード設定 */
 export interface NotionFeedConfig {
   name: { title: Array<{ plain_text: string }> };
   url: string;

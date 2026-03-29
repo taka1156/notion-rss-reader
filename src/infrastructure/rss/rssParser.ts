@@ -6,6 +6,12 @@ export interface RSSParser {
   parse(xmlText: string): FeedItem[];
 }
 
+/**
+ * XMLをパースしてフィードアイテムの配列を返すRSSParserの実装。
+ * - Atom形式、RSS 2.0形式、RSS 1.0形式のフィードに対応する。
+ * - フィードのルート要素やエントリー要素の構造を解析して、記事アイテムを抽出する。
+ * - フィードの形式が不明な場合はエラーをスローする。
+ */
 export class XMLRSSParser implements RSSParser {
   private parser: XMLParser;
 
@@ -13,6 +19,15 @@ export class XMLRSSParser implements RSSParser {
     this.parser = new XMLParser(options);
   }
 
+  /**
+   * XMLテキストをパースしてフィードアイテムの配列を返す。
+   * - Atom形式、RSS 2.0形式、RSS 1.0形式のフィードに対応する。
+   * - フィードのルート要素やエントリー要素の構造を解析して、記事アイテムを抽出する。
+   * - フィードの形式が不明な場合はエラーをスローする。
+   * @param xmlText フィードのXMLテキスト
+   * @returns フィードアイテムの配列
+   * @throws エラーが発生した場合はエラーをスローする。
+   */
   parse(xmlText: string): FeedItem[] {
     try {
       const root = this.parser.parse(xmlText) as ParsedFeedRoot;

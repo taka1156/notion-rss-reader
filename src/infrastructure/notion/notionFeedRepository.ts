@@ -14,6 +14,13 @@ export interface NotionRepository {
   saveArticle(entry: FeedEntry): Promise<CreatePageResponse>;
 }
 
+/**
+ * Notionをデータストアとして使用するリポジトリの実装。
+ * - フィード設定と既存記事URLの取得、記事の保存をNotion APIを通じて行う。
+ * - フィード設定は「Feeder」データベースから、既存記事URLは「Reader」データベースから取得する。
+ * - 記事の保存は「Reader」データベースに対して行う。
+ * - データの取得と保存の際には、APIレスポンスの構造に合わせて適切にプロパティを抽出する。
+ */
 export class NotionFeedRepository implements NotionRepository {
   constructor(
     private client: NotionClient,
@@ -21,6 +28,14 @@ export class NotionFeedRepository implements NotionRepository {
     private readerDatabaseId: string,
   ) {}
 
+  /**
+   * Notionの「Feeder」データベースからフィード設定を取得する。
+   * - データベースのクエリをページネーションしながら全てのページを取得する。
+   * - 各ページから「Name」と「URL」プロパティを抽出し、フィード設定の配列を構築する。
+   * @returns フィード設定の配列
+   * @throws エラーが発生した場合はログに記録し、リトライする。
+   * 最大リトライ回数を超えた場合はエラーをスローする。
+   */
   async getFeedConfigs(): Promise<FeedConfig[]> {
     const feedConfigs: FeedConfig[] = [];
     let hasMore = true;
@@ -62,6 +77,14 @@ export class NotionFeedRepository implements NotionRepository {
     return feedConfigs;
   }
 
+  /**
+   * Notionの「Reader」データベースから既存記事のURLを取得する。
+   * - データベースのクエリをページネーションしながら全てのページを取得する。
+   * - 各ページから「URL」プロパティを抽出し、URLのセットを構築する。
+   * @returns 既存記事のURLセット
+   * @throws エラーが発生した場合はログに記録し、リトライする。
+   * 最大リトライ回数を超えた場合はエラーをスローする。
+   */
   async getExistingArticleUrls(): Promise<Set<string>> {
     const urls = new Set<string>();
     let hasMore = true;
@@ -95,6 +118,15 @@ export class NotionFeedRepository implements NotionRepository {
     return urls;
   }
 
+  /**
+   * Notionの「Reader」データベースに新しい記事を保存する。
+   * - 記事のタイトル、URL、ソース名、公開日時、更新日時をページのプロパティとして設定する。
+   * - API呼び出しにリトライロジックが組み込まれている。
+   * @param entry 保存する記事のエントリ
+   * @returns ページ作成のレスポンスデータ
+   * @throws エラーが発生した場合はログに記録し、リトライする。
+   * 最大リトライ回数を超えた場合はエラーをスローする。
+   */
   async saveArticle(entry: FeedEntry): Promise<CreatePageResponse> {
     const properties: CreatePageParameters['properties'] = {
       title: { title: [{ text: { content: entry.title } }] },
