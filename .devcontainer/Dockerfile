@@ -9,7 +9,9 @@ ENV LANG=ja_JP.UTF-8 \
 
 RUN <<-EOF
 apt update
-apt install -y locales tzdata git vim curl
+curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
+apt install -y locales tzdata git git-lfs vim curl
+git lfs install
 apt clean
 EOF
 
