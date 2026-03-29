@@ -1,8 +1,8 @@
-import { XMLRSSParser } from "../../rss/rssParser";
-import { describe, it, expect } from "vitest";
+import { describe, expect, it } from 'vitest';
+import { XMLRSSParser } from '../../rss/rssParser';
 
-describe("XMLRSSParser", () => {
-  it("should parse RSS XML", () => {
+describe('XMLRSSParser', () => {
+  it('should parse RSS XML', () => {
     const parser = new XMLRSSParser();
     const xml = `<?xml version="1.0"?>
 <rss version="2.0">
@@ -17,7 +17,7 @@ describe("XMLRSSParser", () => {
 
     const items = parser.parse(xml);
     expect(items).toHaveLength(1);
-    expect(items[0].title).toBe("Test Article");
-    expect(items[0].link).toBe("https://example.com");
+    expect(items[0].title).toBe('Test Article');
+    expect(items[0].link).toBe('https://example.com');
   });
 });

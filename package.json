@@ -10,7 +10,7 @@
     "start-dev": "ts-node src/index.ts --debug",
     "test": "vitest run",
     "lint": "exec biome check src/**/*.ts && exec biome format src/**/*.ts",
-    "lint:fix": "exec biome lint src/**/*.{ts,tsx} && exec biome format --write src/**/*.{ts,tsx}"
+    "lint:fix": "exec biome lint src/**/*.ts && exec biome format --write src/**/*.ts"
   },
   "dependencies": {
     "@notionhq/client": "^5.15.0",

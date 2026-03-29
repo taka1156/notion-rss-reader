@@ -3,21 +3,26 @@
   "dockerComposeFile": "./docker-compose.yml",
   "service": "app",
   "workspaceFolder": "/workspace",
+  "postCreateCommand": "yarn install",
   "customizations": {
     "vscode": {
       "extensions": [
         "MS-CEINTL.vscode-language-pack-ja",
-        "biomejs.biome",
-        "vitest.explorer",
         "streetsidesoftware.code-spell-checker",
-        "username.errorlens"
+        "usernamehw.errorlens",
+        "biomejs.biome"
       ],
       "settings": {
         "terminal.integrated.cwd": "${containerWorkspaceFolder}",
         "editor.formatOnSave": true,
         "editor.defaultFormatter": "biomejs.biome",
         "editor.codeActionsOnSave": {
-          "source.organizeImports.biome": "explicit"
+          "quickfix.biome": "explicit",
+          "source.organizeImports.biome": "explicit",
+          "source.removeUnusedImports": "always",
+          "source.sortImports": "explicit",
+          "source.fixAll.biome": "explicit",
+          "biome.enableProjectDiagnostics": "always"
         },
         "files.insertFinalNewline": true,
         "errorLens.enabledDiagnosticLevels": ["error", "warning"]

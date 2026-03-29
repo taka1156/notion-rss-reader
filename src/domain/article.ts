@@ -17,13 +17,13 @@ export interface FeedEntry {
  * XMLの要素がテキストのみを含む場合に使用される。
  */
 export interface XmlTextNode {
-  "#text"?: string;
+  '#text'?: string;
 }
 
 /**
  * RSSやAtomのエントリーを表すインターフェース。
  * これらのフィード形式で共通するプロパティを定義している。
-*/
+ */
 export interface AtomLink {
   rel?: string;
   href?: string;
@@ -53,13 +53,13 @@ export interface RssItem {
   link?: string | null;
   guid?: string | null;
   pubDate?: string | null;
-  "dc:date"?: string | null;
+  'dc:date'?: string | null;
   updated?: string | null;
 }
 
 export type FeedItem = AtomEntry | RssItem;
 
-/** 
+/**
  * フィードのルート要素を表すインターフェース。
  * Atomフィード、RSSフィード、RDFフィードなど、さまざまなフィード形式に対応するための構造を定義している。
  */

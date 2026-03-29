@@ -1,25 +1,25 @@
-export type LogLevel = "error" | "warn" | "info" | "debug";
+export type LogLevel = 'error' | 'warn' | 'info' | 'debug';
 
-let logLevel: LogLevel = "info";
+let logLevel: LogLevel = 'info';
 
 export function setLogLevel(level: LogLevel): void {
   logLevel = level;
 }
 
 export function debug(...args: unknown[]): void {
-  if (logLevel === "debug") {
+  if (logLevel === 'debug') {
     console.debug(...args);
   }
 }
 
 export function info(...args: unknown[]): void {
-  if (logLevel === "info" || logLevel === "debug") {
+  if (logLevel === 'info' || logLevel === 'debug') {
     console.log(...args);
   }
 }
 
 export function warn(...args: unknown[]): void {
-  if (logLevel === "warn" || logLevel === "info" || logLevel === "debug") {
+  if (logLevel === 'warn' || logLevel === 'info' || logLevel === 'debug') {
     console.warn(...args);
   }
 }

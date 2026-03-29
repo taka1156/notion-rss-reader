@@ -10,13 +10,13 @@ export function validateEnv(): Env {
   const NOTION_READER_DATASOURCE_ID = process.env.NOTION_READER_DATASOURCE_ID;
 
   if (!NOTION_TOKEN) {
-    throw new Error("NOTION_TOKEN is required");
+    throw new Error('NOTION_TOKEN is required');
   }
   if (!NOTION_FEEDER_DATASOURCE_ID) {
-    throw new Error("NOTION_FEEDER_DATASOURCE_ID is required");
+    throw new Error('NOTION_FEEDER_DATASOURCE_ID is required');
   }
   if (!NOTION_READER_DATASOURCE_ID) {
-    throw new Error("NOTION_READER_DATASOURCE_ID is required");
+    throw new Error('NOTION_READER_DATASOURCE_ID is required');
   }
 
   return {

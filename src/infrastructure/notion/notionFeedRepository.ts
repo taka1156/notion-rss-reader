@@ -1,106 +1,122 @@
-import { QueryDataSourceResponse, CreatePageResponse, PageObjectResponse } from "@notionhq/client";
-import { NotionClient } from "./notionClient";
-import { FeedConfig } from "../../domain/feed";
-import { FeedEntry } from "../../domain/article";
+import type {
+  CreatePageParameters,
+  CreatePageResponse,
+  PageObjectResponse,
+  QueryDataSourceResponse,
+} from '@notionhq/client';
+import type { FeedEntry } from '../../domain/article';
+import type { FeedConfig, NotionFeedConfig } from '../../domain/feed';
+import type { NotionClient } from './notionClient';
 
 export interface NotionRepository {
-    getFeedConfigs(): Promise<FeedConfig[]>;
-    getExistingArticleUrls(): Promise<Set<string>>;
-    saveArticle(entry: FeedEntry): Promise<CreatePageResponse>;
+  getFeedConfigs(): Promise<FeedConfig[]>;
+  getExistingArticleUrls(): Promise<Set<string>>;
+  saveArticle(entry: FeedEntry): Promise<CreatePageResponse>;
 }
 
 export class NotionFeedRepository implements NotionRepository {
-    constructor(
-        private client: NotionClient,
-        private feederDatabaseId: string,
-        private readerDatabaseId: string
-    ) {}
+  constructor(
+    private client: NotionClient,
+    private feederDatabaseId: string,
+    private readerDatabaseId: string,
+  ) {}
 
-    async getFeedConfigs(): Promise<FeedConfig[]> {
-        const feedConfigs: FeedConfig[] = [];
-        let hasMore = true;
-        let nextCursor: string | null = null;
+  async getFeedConfigs(): Promise<FeedConfig[]> {
+    const feedConfigs: FeedConfig[] = [];
+    let hasMore = true;
+    let nextCursor: string | null = null;
 
-        while (hasMore) {
-            const response: QueryDataSourceResponse = await this.client.queryDatabase({
-                data_source_id: this.feederDatabaseId,
-                page_size: 100,
-                result_type: "page",
-                ...(nextCursor && { start_cursor: nextCursor })
-            });
+    while (hasMore) {
+      const response: QueryDataSourceResponse = await this.client.queryDatabase(
+        {
+          data_source_id: this.feederDatabaseId,
+          page_size: 100,
+          result_type: 'page',
+          ...(nextCursor && { start_cursor: nextCursor }),
+        },
+      );
 
-            const pages = response.results.filter((item): item is PageObjectResponse => item.object === "page");
+      const pages = response.results.filter(
+        (item): item is PageObjectResponse => item.object === 'page',
+      );
 
-            for (const page of pages) {
-                const nameProp = this.getPropertyValue(page, "Name");
-                const urlProp = this.getPropertyValue(page, "URL");
+      for (const page of pages) {
+        const nameProp = this.getPropertyValue<NotionFeedConfig['name']>(
+          page,
+          'Name',
+        );
+        const urlProp = this.getPropertyValue<NotionFeedConfig>(page, 'URL');
 
-                if (nameProp?.title?.[0]?.plain_text && urlProp?.url) {
-                    feedConfigs.push({
-                        name: nameProp.title[0].plain_text,
-                        url: urlProp.url,
-                    });
-                }
-            }
-
-            hasMore = response.has_more;
-            nextCursor = response.next_cursor ?? null;
+        if (nameProp?.title?.[0]?.plain_text && urlProp.url) {
+          feedConfigs.push({
+            name: nameProp.title[0].plain_text,
+            url: urlProp.url,
+          });
         }
+      }
 
-        return feedConfigs;
+      hasMore = response.has_more;
+      nextCursor = response.next_cursor ?? null;
     }
 
-    async getExistingArticleUrls(): Promise<Set<string>> {
-        const urls = new Set<string>();
-        let hasMore = true;
-        let nextCursor: string | null = null;
+    return feedConfigs;
+  }
 
-        while (hasMore) {
-            const response: QueryDataSourceResponse = await this.client.queryDatabase({
-                data_source_id: this.readerDatabaseId,
-                page_size: 100,
-                result_type: "page",
-                ...(nextCursor && { start_cursor: nextCursor })
-            });
+  async getExistingArticleUrls(): Promise<Set<string>> {
+    const urls = new Set<string>();
+    let hasMore = true;
+    let nextCursor: string | null = null;
 
-            const pages = response.results.filter((item): item is PageObjectResponse => item.object === "page");
+    while (hasMore) {
+      const response: QueryDataSourceResponse = await this.client.queryDatabase(
+        {
+          data_source_id: this.readerDatabaseId,
+          page_size: 100,
+          result_type: 'page',
+          ...(nextCursor && { start_cursor: nextCursor }),
+        },
+      );
 
-            for (const page of pages) {
-                const urlProp = this.getPropertyValue(page, "URL");
-                if (urlProp?.url) {
-                    urls.add(urlProp.url);
-                }
-            }
+      const pages = response.results.filter(
+        (item): item is PageObjectResponse => item.object === 'page',
+      );
 
-            hasMore = response.has_more;
-            nextCursor = response.next_cursor ?? null;
+      for (const page of pages) {
+        const urlProp = this.getPropertyValue<NotionFeedConfig>(page, 'URL');
+        if (urlProp?.url) {
+          urls.add(urlProp.url);
         }
+      }
 
-        return urls;
+      hasMore = response.has_more;
+      nextCursor = response.next_cursor ?? null;
     }
 
-    async saveArticle(entry: FeedEntry): Promise<CreatePageResponse> {
-        const properties: any = {
-            title: { title: [{ text: { content: entry.title } }] },
-            URL: { url: entry.url },
-            source: { rich_text: [{ text: { content: entry.sourceName } }] },
-        };
+    return urls;
+  }
 
-        if (entry.publishedAt) {
-            properties.createdAt = { date: entry.publishedAt };
-        }
-        if (entry.updatedAt) {
-            properties.updatedAt = { date: entry.updatedAt };
-        }
+  async saveArticle(entry: FeedEntry): Promise<CreatePageResponse> {
+    const properties: CreatePageParameters['properties'] = {
+      title: { title: [{ text: { content: entry.title } }] },
+      URL: { url: entry.url },
+      source: { rich_text: [{ text: { content: entry.sourceName } }] },
+    };
 
-        return this.client.createPage({
-            parent: { data_source_id: this.readerDatabaseId },
-            properties,
-        });
+    if (entry.publishedAt) {
+      properties.createdAt = { date: entry.publishedAt };
+    }
+    if (entry.updatedAt) {
+      properties.updatedAt = { date: entry.updatedAt };
     }
 
-    private getPropertyValue(page: PageObjectResponse, propertyName: string): any {
-        const properties = page.properties as Record<string, any>;
-        return properties[propertyName];
-    }
+    return this.client.createPage({
+      parent: { data_source_id: this.readerDatabaseId },
+      properties,
+    });
+  }
+
+  private getPropertyValue<T>(page: PageObjectResponse, propertyName: string) {
+    const properties = page.properties;
+    return properties[propertyName] as T;
+  }
 }
