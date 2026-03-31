@@ -74,7 +74,7 @@ export class SyncFeedUseCaseImpl implements SyncFeedUseCase {
       const rawItems = this.rssParser.parse(xmlText) as FeedItem[];
 
       const entries = rawItems
-        .map((item) => this.convertToFeedEntry(item, feed.name))
+        .map((item) => this.convertToFeedEntry(item, feed.name, feed.cover))
         .filter(
           (entry): entry is FeedEntry =>
             entry !== null && !existingUrls.has(entry.url),
@@ -108,6 +108,7 @@ export class SyncFeedUseCaseImpl implements SyncFeedUseCase {
   private convertToFeedEntry(
     item: FeedItem,
     sourceName: string,
+    cover: string,
   ): FeedEntry | null {
     // 簡略化のため、元のconvertFeedItemToEntryをここにインライン
     // 本来はdomain serviceや別のコンバーターに分けるべき
@@ -136,6 +137,7 @@ export class SyncFeedUseCaseImpl implements SyncFeedUseCase {
       publishedAt,
       updatedAt,
       sourceName,
+      cover,
     };
   }
 

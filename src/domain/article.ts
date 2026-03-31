@@ -10,6 +10,7 @@ export interface FeedEntry {
   publishedAt: NotionDate | null;
   updatedAt: NotionDate | null;
   sourceName: string;
+  cover: string;
 }
 
 /**

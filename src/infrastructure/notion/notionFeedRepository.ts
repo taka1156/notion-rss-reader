@@ -59,14 +59,23 @@ export class NotionFeedRepository implements NotionRepository {
       for (const page of pages) {
         const nameProp = this.getPropertyValue<NotionFeedConfig['name']>(
           page,
-          'Name',
+          'name',
         );
-        const urlProp = this.getPropertyValue<NotionFeedConfig>(page, 'URL');
+        const urlProp = this.getPropertyValue<NotionFeedConfig['rss']>(
+          page,
+          'rss',
+        );
+        const coverProp = this.getPropertyValue<NotionFeedConfig['cover']>(
+          page,
+          'cover',
+        );
+        const coverUrl = this.extractExternalCoverUrl(coverProp);
 
         if (nameProp?.title?.[0]?.plain_text && urlProp.url) {
           feedConfigs.push({
             name: nameProp.title[0].plain_text,
             url: urlProp.url,
+            cover: coverUrl || '',
           });
         }
       }
@@ -107,8 +116,8 @@ export class NotionFeedRepository implements NotionRepository {
 
       for (const page of pages) {
         const urlProp = this.getPropertyValue<NotionFeedConfig>(page, 'URL');
-        if (urlProp?.url) {
-          urls.add(urlProp.url);
+        if (urlProp?.rss) {
+          urls.add(urlProp.rss.url);
         }
       }
 
@@ -142,10 +151,27 @@ export class NotionFeedRepository implements NotionRepository {
       properties.updatedAt = { date: entry.updatedAt };
     }
 
-    return this.client.createPage({
+    const params: CreatePageParameters = {
       parent: { data_source_id: this.readerDatabaseId },
       properties,
-    });
+    };
+
+    if (this.isValidExternalCoverUrl(entry.cover)) {
+      params.children = [
+        {
+          object: 'block',
+          type: 'image',
+          image: {
+            type: 'external',
+            external: {
+              url: entry.cover,
+            },
+          },
+        },
+      ];
+    }
+
+    return this.client.createPage(params);
   }
 
   /**
@@ -182,5 +208,37 @@ export class NotionFeedRepository implements NotionRepository {
   private getPropertyValue<T>(page: PageObjectResponse, propertyName: string) {
     const properties = page.properties;
     return properties[propertyName] as T;
+  }
+
+  private extractExternalCoverUrl(
+    coverProp?: NotionFeedConfig['cover'],
+  ): string {
+    const firstFile = coverProp?.files?.[0];
+    if (!firstFile) {
+      return '';
+    }
+
+    if (firstFile.type === 'external') {
+      return firstFile.external?.url ?? '';
+    }
+
+    return '';
+  }
+
+  private isValidExternalCoverUrl(url: string): boolean {
+    try {
+      const parsed = new URL(url);
+      const isHttp =
+        parsed.protocol === 'https:' || parsed.protocol === 'http:';
+      const host = parsed.hostname.toLowerCase();
+      const isNotionHost =
+        host.endsWith('notion.so') ||
+        host.endsWith('notion.site') ||
+        host.endsWith('notion-static.com');
+
+      return isHttp && !isNotionHost;
+    } catch {
+      return false;
+    }
   }
 }
