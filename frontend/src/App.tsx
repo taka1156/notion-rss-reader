@@ -27,7 +27,7 @@ function App() {
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
 
   useEffect(() => {
-    fetch('/entries.json')
+    fetch('./entries.json')
       .then((res) => {
         if (!res.ok) {
           throw new Error(`HTTP ${res.status}`);
