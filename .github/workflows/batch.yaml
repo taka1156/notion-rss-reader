@@ -12,6 +12,7 @@ on:
 
 env:
   TZ: 'Asia/Tokyo'
+
 jobs:
   batch:
     runs-on: ubuntu-latest
@@ -21,20 +22,14 @@ jobs:
         with:
           node-version: '24'
       - uses: pnpm/action-setup@v4
-
-      - name: install cli
-        run: make cli-ci
-
-      - name: sync RSS feeds
-        run: make cli-start-reset
+      - run: make cli-ci
+      - run: make cli-start-reset
         env:
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
           NOTION_FEEDER_DATASOURCE_ID: ${{ secrets.NOTION_FEEDER_DATASOURCE_ID }}
           NOTION_READER_DATASOURCE_ID: ${{ secrets.NOTION_READER_DATASOURCE_ID }}
           ENTRIES_JSON_OUTPUT: .dist/entries.json
-
-      - name: upload entries.json
-        uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v4
         with:
           name: entries-json
           path: .dist/entries.json

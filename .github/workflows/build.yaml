@@ -10,8 +10,10 @@ on:
 
 env:
   TZ: 'Asia/Tokyo'
+
 jobs:
-  deploy:
+  build:
+    if: github.event_name == 'push'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -19,37 +21,33 @@ jobs:
         with:
           node-version: '24'
       - uses: pnpm/action-setup@v4
-
-      - name: install
-        run: make front-ci
-
+      - run: make front-ci
       - name: download entries.json
         uses: dawidd6/action-download-artifact@v3
         with:
           workflow: batch.yaml
           name: entries-json
-          path: ./.dist/
+          path: .dist/
+          if_no_artifact_found: warn
+      - run: make front-build
+      - uses: actions/upload-artifact@v4
+        with:
+          name: frontend-dist
+          path: .dist/
 
-      - name: download previous dist
-        if: github.event_name != 'push'
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: download dist
+        id: download-dist
         uses: dawidd6/action-download-artifact@v3
         with:
           workflow: build.yaml
           name: frontend-dist
           path: .dist/
-
-      - name: build
-        if: github.event_name == 'push'
-        run: make front-build
-
-      - name: upload dist
-        if: github.event_name == 'push'
-        uses: actions/upload-artifact@v4
-        with:
-          name: frontend-dist
-          path: .dist/
-
+          if_no_artifact_found: warn
       - name: deploy to Github Pages
+        if: steps.download-dist.outputs.found_artifact == 'true'
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
