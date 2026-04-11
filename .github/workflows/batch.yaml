@@ -2,7 +2,7 @@ name: sync rss with notion databases
 
 on:
   schedule:
-    - cron: 0 17 * * * # JST 0:00
+    - cron: 0 17 */3 * * # JST 0:00 (every 3 days)
   push:
     branches:
       - master
@@ -22,15 +22,24 @@ jobs:
         with:
           node-version: '24'
       - uses: pnpm/action-setup@v4
-      - run: make cli-ci
-      - run: make cli-start-reset
+
+      - name: install dependencies
+        run: pnpm install
+
+      - name: run batch
+        run: |
+          make cli-start-reset
         env:
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
           NOTION_FEEDER_DATASOURCE_ID: ${{ secrets.NOTION_FEEDER_DATASOURCE_ID }}
           NOTION_READER_DATASOURCE_ID: ${{ secrets.NOTION_READER_DATASOURCE_ID }}
-          ENTRIES_JSON_OUTPUT: ../.dist/entries.json
-      - uses: actions/upload-artifact@v4
-        with:
-          name: entries-json
-          path: .dist/entries.json
+          ENTRIES_JSON_OUTPUT: ../frontend/public/entries.json
 
+      - name: build frontend
+        run: make front-build
+
+      - name: deploy to Github Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./.dist
