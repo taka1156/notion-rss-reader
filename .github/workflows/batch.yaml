@@ -22,21 +22,20 @@ jobs:
           node-version: '24'
       - uses: pnpm/action-setup@v4
 
-      - name: install
-        run: make front-ci
+      - name: install cli
+        run: make cli-ci
 
-      - name: sync RSS feeds and export entries.json
+      - name: sync RSS feeds
         run: make cli-start-reset
         env:
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
           NOTION_FEEDER_DATASOURCE_ID: ${{ secrets.NOTION_FEEDER_DATASOURCE_ID }}
           NOTION_READER_DATASOURCE_ID: ${{ secrets.NOTION_READER_DATASOURCE_ID }}
-          ENTRIES_JSON_OUTPUT: frontend/public/entries.json
+          ENTRIES_JSON_OUTPUT: .dist/entries.json
 
-      - name: Commit entries.json if changed
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add frontend/public/entries.json
-          git diff --cached --quiet || git commit -m "chore: update entries.json [skip batch]"
-          git push
+      - name: upload entries.json
+        uses: actions/upload-artifact@v4
+        with:
+          name: entries-json
+          path: .dist/entries.json
+
