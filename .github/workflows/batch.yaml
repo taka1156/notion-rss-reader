@@ -21,8 +21,6 @@ jobs:
         with:
           node-version: '24'
       - uses: pnpm/action-setup@v4
-        with:
-          version: 8
       - run: make cli-ci
       - run: make cli-start-reset
         env:
