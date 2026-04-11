@@ -1,13 +1,14 @@
-import { defineConfig } from "vitest/config";
+import { defineConfig } from 'vitest/config';
 
 export default defineConfig({
   test: {
     environment: 'node',
     globals: true,
+    include: ['cli/src/**/*.test.ts'],
     coverage: {
       provider: 'istanbul',
       reporter: ['text', 'lcov'],
-      exclude: ['src/test/**', 'src/infrastructures/**'],
+      exclude: ['cli/src/test/**', 'cli/src/infrastructures/**'],
     },
   },
 });

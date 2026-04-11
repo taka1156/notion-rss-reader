@@ -1,4 +1,4 @@
-FROM node:22.12.0
+FROM node:24
 
 WORKDIR /workspace
 
@@ -10,12 +10,10 @@ ENV LANG=ja_JP.UTF-8 \
 RUN <<-EOF
 apt update
 curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
-apt install -y locales tzdata git git-lfs vim curl
+apt install -y locales tzdata git git-lfs vim curl make
 git lfs install
 apt clean
 EOF
-
-RUN yarn install
 
 RUN <<-EOF
 echo "ja_JP.UTF-8 UTF-8" > /etc/locale.gen
@@ -25,6 +23,8 @@ dpkg-reconfigure -f noninteractive tzdata
 
 git config --global core.editor true
 EOF
+
+RUN npm install -g pnpm
 
 RUN <<-EOF
 curl -o ~/.git-prompt.sh https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh

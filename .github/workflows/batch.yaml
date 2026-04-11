@@ -3,6 +3,11 @@ name: sync rss with notion databases
 on:
   schedule:
     - cron: 0 17 * * * # JST 0:00
+  push:
+    branches:
+      - master
+    paths:
+      - 'cli/**'
   workflow_dispatch:
 
 env:
@@ -15,8 +20,9 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - run: yarn ci
-      - run: yarn start:reset
+      - uses: pnpm/action-setup@v4
+      - run: make cli-ci
+      - run: make cli-start-reset
         env:
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
           NOTION_FEEDER_DATASOURCE_ID: ${{ secrets.NOTION_FEEDER_DATASOURCE_ID }}

@@ -1,4 +1,5 @@
-import 'dotenv/config';
+import path from 'node:path';
+import dotenv from 'dotenv';
 import { SyncFeedUseCaseImpl } from './application/syncFeedUseCase';
 import { validateEnv } from './config/env';
 import { NotionClient } from './infrastructure/notion/notionClient';
@@ -6,6 +7,8 @@ import { NotionFeedRepository } from './infrastructure/notion/notionFeedReposito
 import { HTTPRSSFetcher } from './infrastructure/rss/rssFetcher';
 import { XMLRSSParser } from './infrastructure/rss/rssParser';
 import { info, setLogLevel } from './utils/logger';
+
+dotenv.config({ path: path.resolve(__dirname, '../../.env') });
 
 async function main() {
   info('Starting feed processor...');

@@ -3,7 +3,7 @@
   "dockerComposeFile": "./docker-compose.yml",
   "service": "app",
   "workspaceFolder": "/workspace",
-  "postCreateCommand": "yarn install",
+  "postCreateCommand": "pnpm install",
   "customizations": {
     "vscode": {
       "extensions": [
@@ -19,8 +19,8 @@
         "editor.codeActionsOnSave": {
           "quickfix.biome": "explicit",
           "source.organizeImports.biome": "explicit",
-          "source.removeUnusedImports": "always",
-          "source.sortImports": "explicit",
+          "source.removeUnusedImports": "never",
+          "source.sortImports": "never",
           "source.fixAll.biome": "explicit",
           "biome.enableProjectDiagnostics": "always"
         },
