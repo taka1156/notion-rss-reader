@@ -22,6 +22,7 @@ jobs:
           node-version: '24'
       - uses: pnpm/action-setup@v4
       - run: make front-ci
+
       - name: download entries.json
         uses: dawidd6/action-download-artifact@v3
         with:
@@ -36,6 +37,8 @@ jobs:
           path: .dist/
 
   deploy:
+    needs: build
+    if: always() && needs.build.result != 'failure'
     runs-on: ubuntu-latest
     steps:
       - name: download dist
@@ -46,6 +49,8 @@ jobs:
           name: frontend-dist
           path: .dist/
           if_no_artifact_found: warn
+          search_artifacts: true
+
       - name: deploy to Github Pages
         if: steps.download-dist.outputs.found_artifact == 'true'
         uses: peaceiris/actions-gh-pages@v3
