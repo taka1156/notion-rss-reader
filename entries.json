@@ -4,18 +4,6 @@
   ],
   "entries": [
     {
-      "title": "x402プロトコルでHTTP課金APIを作る方法 — BlockchainのUSDCでマイクロペイメントを実現",
-      "url": "https://zenn.dev/aoi_0411/articles/x402-api-intro",
-      "publishedAt": {
-        "start": "2026-04-11"
-      },
-      "updatedAt": {
-        "start": "2026-04-11"
-      },
-      "sourceName": "Zenn Node.js",
-      "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
-    },
-    {
       "title": "nodenv, anyenvをアンインストール",
       "url": "https://zenn.dev/kometan/articles/8a5ace15de3d34",
       "publishedAt": {
@@ -239,6 +227,18 @@
       },
       "updatedAt": {
         "start": "2026-04-05"
+      },
+      "sourceName": "Zenn Node.js",
+      "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
+    },
+    {
+      "title": "Axios侵害は他人事ではない。Node.jsメンテナを狙う新しい攻撃と現実的な防御策",
+      "url": "https://zenn.dev/dragon1208/articles/93fec4392ea58c",
+      "publishedAt": {
+        "start": "2026-04-04"
+      },
+      "updatedAt": {
+        "start": "2026-04-04"
       },
       "sourceName": "Zenn Node.js",
       "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
