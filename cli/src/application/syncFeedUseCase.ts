@@ -1,4 +1,9 @@
-import type { FeedEntry, FeedItem, RssItem } from '../domain/article';
+import type {
+  FeedEntry,
+  FeedItem,
+  JSONOutput,
+  RssItem,
+} from '../domain/article';
 import type { FeedConfig } from '../domain/feed';
 import type { NotionRepository } from '../infrastructure/notion/notionFeedRepository';
 import type { RSSFetcher } from '../infrastructure/rss/rssFetcher';
@@ -6,7 +11,7 @@ import type { RSSParser } from '../infrastructure/rss/rssParser';
 import { error, info, warn } from '../utils/logger';
 
 export interface SyncFeedUseCase {
-  execute(): Promise<void>;
+  execute(): Promise<JSONOutput>;
 }
 
 /**
@@ -24,14 +29,14 @@ export class SyncFeedUseCaseImpl implements SyncFeedUseCase {
     private rssParser: RSSParser,
   ) {}
 
-  async execute(): Promise<void> {
+  async execute(): Promise<JSONOutput> {
     info('Starting feed synchronization...');
 
     try {
       const feedConfigs = await this.notionRepo.getFeedConfigs();
       if (!feedConfigs.length) {
         info('No feed configs found.');
-        return;
+        return { categories: [], entries: [] };
       }
 
       const existingUrls = await this.notionRepo.getExistingArticleUrls();
@@ -39,11 +44,26 @@ export class SyncFeedUseCaseImpl implements SyncFeedUseCase {
         `Found ${feedConfigs.length} feeds and ${existingUrls.size} existing articles`,
       );
 
+      const allEntries: FeedEntry[] = [];
+      const categories = new Set<string>();
+      feedConfigs.forEach((feed) => {
+        if (feed.name) {
+          categories.add(feed.name);
+        }
+      });
+
       for (const feed of feedConfigs) {
-        await this.processFeed(feed, existingUrls);
+        const entries = await this.processFeed(feed, existingUrls);
+        allEntries.push(...entries);
       }
 
       info('Feed synchronization completed.');
+      const result = {
+        categories: Array.from(categories),
+        entries: allEntries,
+      };
+
+      return result;
     } catch (err) {
       error('Feed synchronization failed', err);
       throw err;
@@ -66,7 +86,7 @@ export class SyncFeedUseCaseImpl implements SyncFeedUseCase {
   private async processFeed(
     feed: FeedConfig,
     existingUrls: Set<string>,
-  ): Promise<void> {
+  ): Promise<FeedEntry[]> {
     try {
       info(`Processing ${feed.name} (${feed.url})`);
 
@@ -92,9 +112,11 @@ export class SyncFeedUseCaseImpl implements SyncFeedUseCase {
       }
 
       info(`Processed ${entries.length} new articles from ${feed.name}`);
+      return entries;
     } catch (err) {
       warn(`Failed to process feed ${feed.name}`, err);
       // 個別のフィード失敗は続行
+      return [];
     }
   }
 

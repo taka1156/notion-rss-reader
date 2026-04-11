@@ -1,3 +1,4 @@
+import fs from 'node:fs';
 import path from 'node:path';
 import dotenv from 'dotenv';
 import { SyncFeedUseCaseImpl } from './application/syncFeedUseCase';
@@ -48,7 +49,16 @@ async function main() {
   }
 
   // 実行
-  await useCase.execute();
+  const jsonOutput = await useCase.execute();
+
+  // ENTRIES_JSON_OUTPUT が指定されていれば JSON を書き出す
+  const outputPath = process.env.ENTRIES_JSON_OUTPUT;
+  if (outputPath) {
+    const resolved = path.resolve(outputPath);
+    fs.mkdirSync(path.dirname(resolved), { recursive: true });
+    fs.writeFileSync(resolved, JSON.stringify(jsonOutput, null, 2));
+    info(`Wrote ${jsonOutput.entries.length} entries to ${resolved}`);
+  }
 
   info('Feed processing completed.');
 }

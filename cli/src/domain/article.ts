@@ -13,6 +13,12 @@ export interface FeedEntry {
   cover: string;
 }
 
+/** JSON */
+export interface JSONOutput {
+  categories: string[];
+  entries: FeedEntry[];
+}
+
 /**
  * XMLのテキストノードを表すインターフェース。
  * XMLの要素がテキストのみを含む場合に使用される。
