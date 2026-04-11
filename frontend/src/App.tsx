@@ -1,129 +1,117 @@
-import { useState } from 'react';
+import { type ChangeEvent, useEffect, useState } from 'react';
 import './App.css';
-import heroImg from './assets/hero.png';
-import reactLogo from './assets/react.svg';
-import viteLogo from './assets/vite.svg';
+
+interface NotionDate {
+  start: string;
+}
+
+interface FeedEntry {
+  title: string;
+  url: string;
+  publishedAt: NotionDate | null;
+  updatedAt: NotionDate | null;
+  sourceName: string;
+  cover: string;
+}
+
+export interface JSONOutput {
+  categories: string[];
+  entries: FeedEntry[];
+}
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [entries, setEntries] = useState<FeedEntry[]>([]);
+  const [filters, setFilters] = useState<FeedEntry[]>([]);
+  const [categories, setCategories] = useState<string[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [errorMsg, setErrorMsg] = useState<string | null>(null);
+
+  useEffect(() => {
+    fetch('/entries.json')
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error(`HTTP ${res.status}`);
+        }
+        return res.json() as Promise<JSONOutput>;
+      })
+      .then((data) => {
+        const { categories, entries } = data;
+        setEntries(entries);
+        setFilters(entries);
+        setCategories(categories);
+        setLoading(false);
+      })
+      .catch((err: unknown) => {
+        setErrorMsg(err instanceof Error ? err.message : String(err));
+        setLoading(false);
+      });
+  }, []);
+
+  const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
+    const input = e.currentTarget.value;
+    const freeWord = input.toLowerCase() || '';
+    const filteredFreeWord = entries.filter(
+      (entry) =>
+        entry.title.toLowerCase().includes(freeWord) ||
+        entry.sourceName.toLowerCase().includes(freeWord),
+    );
+    setFilters(filteredFreeWord);
+  };
+
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+  if (errorMsg) {
+    return <p>Error: {errorMsg}</p>;
+  }
+  if (!entries.length) {
+    return <p>No entries found. Run the CLI to sync feeds.</p>;
+  }
 
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.tsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+    <main>
+      <h1>RSS Feed Entries</h1>
 
-      <div className="ticks"></div>
+      <div className="container">
+        <form className="form" onSubmit={(e) => e.preventDefault()}>
+          <label className="form-label" htmlFor="free_word_search">
+            Free Word Search
+          </label>
+          <input
+            className="form-input"
+            type="search"
+            id="free_word_search"
+            placeholder="タイトル・ソース名で絞り込む"
+            onChange={handleSearch}
+            list="categories"
+          />
+          <datalist id="categories">
+            {categories.map((category) => (
+              <option key={category} value={category} />
+            ))}
+          </datalist>
+        </form>
+      </div>
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank" rel="noreferrer">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
+      <ul className="entries">
+        {filters.map((entry) => (
+          <li key={entry.url} className="entry">
+            {entry.cover && (
+              <img src={entry.cover} alt="" className="entry-cover" />
+            )}
+            <div className="entry-body">
+              <a href={entry.url} target="_blank" rel="noreferrer">
+                {entry.title}
               </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank" rel="noreferrer">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a
-                href="https://github.com/vitejs/vite"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank" rel="noreferrer">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank" rel="noreferrer">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://bsky.app/profile/vite.dev"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
+              <span className="entry-meta">
+                {entry.sourceName}
+                {entry.publishedAt && ` · ${entry.publishedAt.start}`}
+              </span>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </main>
   );
 }
 

@@ -13,6 +13,7 @@ cli-start-reset:
 front-ci:
 	pnpm --filter @notion-rss-reader/frontend install --frozen-lockfile
 front-dev:
+	pnpm run --filter @notion-rss-reader/cli start:dev
 	pnpm run --filter @notion-rss-reader/frontend dev
 front-build:
 	pnpm run --filter @notion-rss-reader/frontend build

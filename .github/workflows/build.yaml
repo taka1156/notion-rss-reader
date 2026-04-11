@@ -1,4 +1,4 @@
-name: build front
+name: build deploy gh-pages front
 
 on:
   push:
@@ -11,7 +11,7 @@ on:
 env:
   TZ: 'Asia/Tokyo'
 jobs:
-  batch:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -19,5 +19,15 @@ jobs:
         with:
           node-version: '24'
       - uses: pnpm/action-setup@v4
-      - run: make front-ci
-      - run: make front-build
+
+      - name: install
+        run: make front-ci
+      
+      - name: build
+        run: make front-build
+      
+      - name: deploy to Github Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./frontend/dist
