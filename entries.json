@@ -1,0 +1,247 @@
+{
+  "categories": [
+    "Zenn Node.js"
+  ],
+  "entries": [
+    {
+      "title": "x402プロトコルでHTTP課金APIを作る方法 — BlockchainのUSDCでマイクロペイメントを実現",
+      "url": "https://zenn.dev/aoi_0411/articles/x402-api-intro",
+      "publishedAt": {
+        "start": "2026-04-11"
+      },
+      "updatedAt": {
+        "start": "2026-04-11"
+      },
+      "sourceName": "Zenn Node.js",
+      "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
+    },
+    {
+      "title": "nodenv, anyenvをアンインストール",
+      "url": "https://zenn.dev/kometan/articles/8a5ace15de3d34",
+      "publishedAt": {
+        "start": "2026-04-10"
+      },
+      "updatedAt": {
+        "start": "2026-04-10"
+      },
+      "sourceName": "Zenn Node.js",
+      "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
+    },
+    {
+      "title": "ゼロから作って学ぶ個人開発プロジェクト5本まとめ",
+      "url": "https://zenn.dev/kensuke_sam/articles/39bd1a5e6ff0f0",
+      "publishedAt": {
+        "start": "2026-04-10"
+      },
+      "updatedAt": {
+        "start": "2026-04-10"
+      },
+      "sourceName": "Zenn Node.js",
+      "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
+    },
+    {
+      "title": "VSCodeでソフトウェア開発管理 ファイル管理編",
+      "url": "https://zenn.dev/nanmotsu/articles/32bdef80aac88a",
+      "publishedAt": {
+        "start": "2026-04-09"
+      },
+      "updatedAt": {
+        "start": "2026-04-09"
+      },
+      "sourceName": "Zenn Node.js",
+      "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
+    },
+    {
+      "title": "AI×Amplify Gen2で月40万を1万に！非エンジニアの開発記 #2：循環参照の罠",
+      "url": "https://zenn.dev/ricotiler/articles/document-app-dev-02-circular-and-node",
+      "publishedAt": {
+        "start": "2026-04-09"
+      },
+      "updatedAt": {
+        "start": "2026-04-09"
+      },
+      "sourceName": "Zenn Node.js",
+      "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
+    },
+    {
+      "title": "Content-Typeの罠とundefinedの恐怖。ファイル添付APIを自作して思い知った「フルスタックの壁」",
+      "url": "https://zenn.dev/goiyu/articles/5022efe4378804",
+      "publishedAt": {
+        "start": "2026-04-09"
+      },
+      "updatedAt": {
+        "start": "2026-04-09"
+      },
+      "sourceName": "Zenn Node.js",
+      "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
+    },
+    {
+      "title": "Codex CLIを画面ごと他のAIに触らせたい — tmux+LLMで自前ハーネスエージェントを作ってみた話",
+      "url": "https://zenn.dev/explaza/articles/5b0cb15e14460a",
+      "publishedAt": {
+        "start": "2026-04-09"
+      },
+      "updatedAt": {
+        "start": "2026-04-09"
+      },
+      "sourceName": "Zenn Node.js",
+      "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
+    },
+    {
+      "title": "郵便番号・デジタルアドレス for Bizを使ってみた",
+      "url": "https://zenn.dev/dem3860/articles/7778d7ca48e9e4",
+      "publishedAt": {
+        "start": "2026-04-08"
+      },
+      "updatedAt": {
+        "start": "2026-04-08"
+      },
+      "sourceName": "Zenn Node.js",
+      "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
+    },
+    {
+      "title": "NPMパッケージにソースマップを含めると何が起きるか — Claude Codeリークから学ぶビルドセキュリティ",
+      "url": "https://zenn.dev/awesome_kou/articles/npm-sourcemap-security",
+      "publishedAt": {
+        "start": "2026-04-08"
+      },
+      "updatedAt": {
+        "start": "2026-04-08"
+      },
+      "sourceName": "Zenn Node.js",
+      "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
+    },
+    {
+      "title": "AS/400 RPGの分散API化｜物流在庫システムの段階的モダナイゼーション戦略",
+      "url": "https://zenn.dev/gk3/articles/20260407-as400-rpgapi",
+      "publishedAt": {
+        "start": "2026-04-07"
+      },
+      "updatedAt": {
+        "start": "2026-04-07"
+      },
+      "sourceName": "Zenn Node.js",
+      "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
+    },
+    {
+      "title": "テストが ~/.claude/ を消し飛ばした話 — HOME 差し替えの罠",
+      "url": "https://zenn.dev/tottoko_hamu/articles/claude-todo-test-selfdestruct",
+      "publishedAt": {
+        "start": "2026-04-07"
+      },
+      "updatedAt": {
+        "start": "2026-04-07"
+      },
+      "sourceName": "Zenn Node.js",
+      "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
+    },
+    {
+      "title": "クールダウンで防ぐサプライチェーン攻撃",
+      "url": "https://zenn.dev/nenene01/articles/axios-attack-prevention",
+      "publishedAt": {
+        "start": "2026-04-06"
+      },
+      "updatedAt": {
+        "start": "2026-04-06"
+      },
+      "sourceName": "Zenn Node.js",
+      "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
+    },
+    {
+      "title": "Volta→mise移行ガイド、メンテナンス終了やから今すぐ乗り換えよ",
+      "url": "https://zenn.dev/masayan1126/articles/volta-to-mise-migration-guide",
+      "publishedAt": {
+        "start": "2026-04-06"
+      },
+      "updatedAt": {
+        "start": "2026-04-06"
+      },
+      "sourceName": "Zenn Node.js",
+      "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
+    },
+    {
+      "title": "LINE Webhookの署名検証、正しく実装できていますか？よくある3つの間違いと正しい実装",
+      "url": "https://zenn.dev/webmori/articles/b0ecbe76ec2f39",
+      "publishedAt": {
+        "start": "2026-04-06"
+      },
+      "updatedAt": {
+        "start": "2026-04-06"
+      },
+      "sourceName": "Zenn Node.js",
+      "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
+    },
+    {
+      "title": "axiosサプライチェーン攻撃 — 影響確認・スキャン・対応の完全ガイド",
+      "url": "https://zenn.dev/awesome_kou/articles/axios-supply-chain-attack",
+      "publishedAt": {
+        "start": "2026-04-05"
+      },
+      "updatedAt": {
+        "start": "2026-04-05"
+      },
+      "sourceName": "Zenn Node.js",
+      "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
+    },
+    {
+      "title": "Async for JS Developers ― 責務分解で理解する非同期処理",
+      "url": "https://zenn.dev/masakielastic/books/async-for-js-developers",
+      "publishedAt": {
+        "start": "2026-04-05"
+      },
+      "updatedAt": {
+        "start": "2026-04-05"
+      },
+      "sourceName": "Zenn Node.js",
+      "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
+    },
+    {
+      "title": "Dockerを使ってZenn執筆環境を作ってみた！",
+      "url": "https://zenn.dev/arupakani_san/articles/64cb57c1a8059e",
+      "publishedAt": {
+        "start": "2026-04-05"
+      },
+      "updatedAt": {
+        "start": "2026-04-05"
+      },
+      "sourceName": "Zenn Node.js",
+      "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
+    },
+    {
+      "title": "VSCodeでソフトウェア開発管理 setting編",
+      "url": "https://zenn.dev/nanmotsu/articles/78dbdc812f7379",
+      "publishedAt": {
+        "start": "2026-04-05"
+      },
+      "updatedAt": {
+        "start": "2026-04-05"
+      },
+      "sourceName": "Zenn Node.js",
+      "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
+    },
+    {
+      "title": "【実験あり】axios攻撃は2行で防げる｜.npmrc設定とignore-scriptsの注意点",
+      "url": "https://zenn.dev/junko_ai/articles/721d89181b844f",
+      "publishedAt": {
+        "start": "2026-04-05"
+      },
+      "updatedAt": {
+        "start": "2026-04-05"
+      },
+      "sourceName": "Zenn Node.js",
+      "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
+    },
+    {
+      "title": "Bunが気になったのでJSランタイムを体系的に調べてみた",
+      "url": "https://zenn.dev/ashunar0/articles/55e6fb22ec3535",
+      "publishedAt": {
+        "start": "2026-04-05"
+      },
+      "updatedAt": {
+        "start": "2026-04-05"
+      },
+      "sourceName": "Zenn Node.js",
+      "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
+    }
+  ]
+}
