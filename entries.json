@@ -2,249 +2,261 @@
   "categories": [
     "Zenn Typescript",
     "Zenn Vitest",
-    "Zenn Vite",
     "Zenn Next.js",
+    "Zenn Vite",
     "Zenn React"
   ],
   "entries": [
     {
-      "title": "# AIと一緒に「ダンス練習用カウント・メトロノーム」を作った話",
-      "url": "https://zenn.dev/dume5579/articles/8d0761e4157fb4",
+      "title": "Next.js(バックエンド)のクリーンアーキテクチャについて",
+      "url": "https://zenn.dev/skyremt/articles/3b075184d9fcc3",
       "publishedAt": {
-        "start": "2026-05-01"
+        "start": "2026-05-04"
       },
       "updatedAt": {
-        "start": "2026-05-01"
+        "start": "2026-05-04"
       },
       "sourceName": "Zenn Typescript",
       "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
     },
     {
-      "title": "Claude Code × Amazon Bedrock 連携ガイド｜AWS上でClaudeを呼び出す実践実装",
-      "url": "https://zenn.dev/masa1990/articles/claude-code-amazon-bedrock",
+      "title": "useImperativeHandleを使ってダイアログを制御してみた",
+      "url": "https://zenn.dev/kokie/articles/cd297fe263acf8",
       "publishedAt": {
-        "start": "2026-05-01"
+        "start": "2026-05-04"
       },
       "updatedAt": {
-        "start": "2026-05-01"
+        "start": "2026-05-04"
       },
       "sourceName": "Zenn Typescript",
       "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
     },
     {
-      "title": "Next.js: バレルエクスポートが生むビルドエラーと対処法",
-      "url": "https://zenn.dev/fujishu/articles/4b5788290257e1",
+      "title": "Claude Code の設定ファイルを GUI で生成する Web アプリを Next.js 16 + Supabase で作った",
+      "url": "https://zenn.dev/fune/articles/8240544470a0d4",
       "publishedAt": {
-        "start": "2026-05-01"
+        "start": "2026-05-04"
       },
       "updatedAt": {
-        "start": "2026-05-01"
+        "start": "2026-05-04"
       },
       "sourceName": "Zenn Typescript",
       "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
     },
     {
-      "title": "[Mastra YouTube 解説] Agents Hour：今週のAIニュースまとめ（2026年4月28日）",
-      "url": "https://zenn.dev/shiromizuj/articles/6008bef13cb340",
+      "title": "【個人開発】Next.js 16 × Server Actionsだけで読書ガイドPWAを作り切った設計と実装",
+      "url": "https://zenn.dev/nozo7/articles/2aa7340105bf77",
       "publishedAt": {
-        "start": "2026-05-01"
+        "start": "2026-05-04"
       },
       "updatedAt": {
-        "start": "2026-05-01"
+        "start": "2026-05-04"
       },
       "sourceName": "Zenn Typescript",
       "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
     },
     {
-      "title": "MCPサーバーを作りたくて OAuth 2.1 をちゃんと学んだ記録",
-      "url": "https://zenn.dev/hidechannu/books/oauth21-mcp-guide",
+      "title": "技術スタックとその選定理由 - Day 2",
+      "url": "https://zenn.dev/klo/articles/e35d80edfddbb9",
       "publishedAt": {
-        "start": "2026-05-01"
+        "start": "2026-05-04"
       },
       "updatedAt": {
-        "start": "2026-05-01"
+        "start": "2026-05-04"
       },
       "sourceName": "Zenn Typescript",
       "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
     },
     {
-      "title": "インデントポリス　インポリっすっす",
-      "url": "https://zenn.dev/ohmyladykk/articles/e074f19b8163f1",
+      "title": "[Mastra YouTube 解説] Agent Editor ワークショップ — エージェントをビジュアルで反復する",
+      "url": "https://zenn.dev/shiromizuj/articles/2d0de44508af87",
       "publishedAt": {
-        "start": "2026-05-01"
+        "start": "2026-05-04"
       },
       "updatedAt": {
-        "start": "2026-05-01"
+        "start": "2026-05-04"
       },
       "sourceName": "Zenn Typescript",
       "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
     },
     {
-      "title": "プログラマ向け圏論入門 1を見てからZodで考えてみた",
-      "url": "https://zenn.dev/melonps/articles/345063d9af36dd",
+      "title": "Claude Code に「動く壁紙」を書かせるプラグインを作った",
+      "url": "https://zenn.dev/fluxlay/articles/fluxlay-claude-code-plugin",
       "publishedAt": {
-        "start": "2026-05-01"
+        "start": "2026-05-04"
       },
       "updatedAt": {
-        "start": "2026-05-01"
+        "start": "2026-05-04"
       },
       "sourceName": "Zenn Typescript",
       "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
     },
     {
-      "title": "#192 ast-grep × ts-morphでAPIバリデーションを可視化する 〜 設計編",
-      "url": "https://zenn.dev/nxted_sapporo/articles/96c1615bc6d655",
+      "title": "Mapbox で window is not defined——Next.js の dynamic と use client の使い分け",
+      "url": "https://zenn.dev/hiroki0304/articles/nextjs-dynamic-ssr-false-mapbox",
       "publishedAt": {
-        "start": "2026-05-01"
+        "start": "2026-05-04"
       },
       "updatedAt": {
-        "start": "2026-05-01"
+        "start": "2026-05-04"
       },
       "sourceName": "Zenn Typescript",
       "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
     },
     {
-      "title": "六曜APIを自前実装するな — 生成AI時代の暦判定で精度事故を防ぐ方法",
-      "url": "https://zenn.dev/shirabe_dev/articles/a17f8e40bbb163",
+      "title": "Remix 3: ブラックボックス化したWeb開発の逆を行く、Simple and ExplicitなWebフレームワーク",
+      "url": "https://zenn.dev/geb/articles/260504_remix-3-first-impression",
       "publishedAt": {
-        "start": "2026-05-01"
+        "start": "2026-05-03"
       },
       "updatedAt": {
-        "start": "2026-05-01"
+        "start": "2026-05-03"
       },
       "sourceName": "Zenn Typescript",
       "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
     },
     {
-      "title": "Props / Context / Redux、どれを使う？Reactステート管理を1枚のフローチャートで判断する",
-      "url": "https://zenn.dev/lincwell_inc/articles/f11afb9f0df009",
+      "title": "最近のNode.js、全然追えてなかった。22 / 24 LTSで使えるようになった機能10選",
+      "url": "https://zenn.dev/seekseep/articles/nodejs-new-features-catch-up-2026",
       "publishedAt": {
-        "start": "2026-04-30"
+        "start": "2026-05-03"
       },
       "updatedAt": {
-        "start": "2026-04-30"
+        "start": "2026-05-03"
       },
       "sourceName": "Zenn Typescript",
       "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
     },
     {
-      "title": "NestJSにおけるPassport・Guardを用いた認証・認可基盤の実装",
-      "url": "https://zenn.dev/y4edd/articles/096ff4c3f3ce21",
+      "title": "オンチェーンじゃんけんで「後出し」を数学的に禁止した話 ── Midnight × ZK dApp 実装記",
+      "url": "https://zenn.dev/midnight/articles/midnight_simple_app-4",
       "publishedAt": {
-        "start": "2026-04-30"
+        "start": "2026-05-03"
       },
       "updatedAt": {
-        "start": "2026-04-30"
+        "start": "2026-05-03"
       },
       "sourceName": "Zenn Typescript",
       "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
     },
     {
-      "title": "TypeScript で実装したワークフローの「正しさ」を Lean とランダムテストで検証する",
-      "url": "https://zenn.dev/aishift/articles/a4bdf225a348e5",
+      "title": "TypeScript+Plotlyで業種別RPSベンチマーク比較ダッシュボードを設計する",
+      "url": "https://zenn.dev/t_shishido/articles/d3c749c4a33db1",
       "publishedAt": {
-        "start": "2026-04-30"
+        "start": "2026-05-03"
       },
       "updatedAt": {
-        "start": "2026-04-30"
+        "start": "2026-05-03"
       },
       "sourceName": "Zenn Typescript",
       "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
     },
     {
-      "title": "Mantine v8 → v9 移行で対応した21ページ分の変更まとめ",
-      "url": "https://zenn.dev/ui_memo/articles/9d3c3560f4ede8",
+      "title": "壁紙に PR とカレンダーと Pomodoro を埋め込んだ",
+      "url": "https://zenn.dev/fluxlay/articles/fluxlay-dev-dashboard-wallpaper",
       "publishedAt": {
-        "start": "2026-04-30"
+        "start": "2026-05-03"
       },
       "updatedAt": {
-        "start": "2026-04-30"
+        "start": "2026-05-03"
       },
       "sourceName": "Zenn Typescript",
       "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
     },
     {
-      "title": "AIに「SRP > DRY」を教える設計原則ルール—コーディングエージェントのルールファイルで「あえて重複を許す勇気」を伝える",
-      "url": "https://zenn.dev/motowo/articles/ai-coding-srp-vs-dry-rules",
+      "title": "クリックスルーなライブ壁紙の中の React UI を操作可能にする",
+      "url": "https://zenn.dev/fluxlay/articles/fluxlay-clickable-live-wallpaper",
       "publishedAt": {
-        "start": "2026-04-30"
+        "start": "2026-05-03"
       },
       "updatedAt": {
-        "start": "2026-04-30"
+        "start": "2026-05-03"
       },
       "sourceName": "Zenn Typescript",
       "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
     },
     {
-      "title": "Parse Guard：LLMアプリに読んだつもりをさせない入力検証パターン",
-      "url": "https://zenn.dev/kanaria007/articles/5c0b35e0c6d670",
+      "title": "LLMアプリのログをレシート化する：あとから説明できるAI処理の作り方",
+      "url": "https://zenn.dev/kanaria007/articles/febcda6fa662d8",
       "publishedAt": {
-        "start": "2026-04-30"
+        "start": "2026-05-03"
       },
       "updatedAt": {
-        "start": "2026-04-30"
+        "start": "2026-05-03"
       },
       "sourceName": "Zenn Typescript",
       "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
     },
     {
-      "title": "[Mastra Announce] ワークスペースが LSP 対応！　ソースコード解釈が大幅パワーアップ",
-      "url": "https://zenn.dev/shiromizuj/articles/2ee37b4e35b544",
+      "title": "[Mastra Announce] リモートファイルシステム登場 ― S3 / GCS / Azure Blob / AgentFS と接続",
+      "url": "https://zenn.dev/shiromizuj/articles/478061f7631f01",
       "publishedAt": {
-        "start": "2026-04-30"
+        "start": "2026-05-03"
       },
       "updatedAt": {
-        "start": "2026-04-30"
+        "start": "2026-05-03"
       },
       "sourceName": "Zenn Typescript",
       "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
     },
     {
-      "title": "AIエージェントで議事録地獄から解放された話——Mastra + Bedrock + Next.jsで2日で作った",
-      "url": "https://zenn.dev/raamenwakamatu/articles/mastra-meeting-summary",
+      "title": "入力フォームで「空の選択肢」をDBに入れないためのデータクレンジング術",
+      "url": "https://zenn.dev/hey_miii/articles/6cfe3582d15ef4",
       "publishedAt": {
-        "start": "2026-04-30"
+        "start": "2026-05-03"
       },
       "updatedAt": {
-        "start": "2026-04-30"
+        "start": "2026-05-03"
       },
       "sourceName": "Zenn Typescript",
       "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
     },
     {
-      "title": "MCP（Model Context Protocol）実践ガイド ― Claude Code対応・自作サーバーから本番運用まで",
-      "url": "https://zenn.dev/mcpforge/books/mcp-complete-guide",
+      "title": "Vercel Cronの本番運用で学んだベストプラクティス：タイムアウト・エラー・並列化",
+      "url": "https://zenn.dev/asoventure/articles/2026-05-03-vercel-cron-best-practices",
       "publishedAt": {
-        "start": "2026-04-30"
+        "start": "2026-05-03"
       },
       "updatedAt": {
-        "start": "2026-04-30"
+        "start": "2026-05-03"
       },
       "sourceName": "Zenn Typescript",
       "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
     },
     {
-      "title": "Claude Code のコスト・トークンを可視化する CLI を作って npm publish した話",
-      "url": "https://zenn.dev/kojihq/articles/66ca3fca6df2a0",
+      "title": "クラウドに依存しないマイルストーン管理ツールを自作している話 - Day 1",
+      "url": "https://zenn.dev/klo/articles/f80d666d3c0575",
       "publishedAt": {
-        "start": "2026-04-30"
+        "start": "2026-05-03"
       },
       "updatedAt": {
-        "start": "2026-04-30"
+        "start": "2026-05-03"
       },
       "sourceName": "Zenn Typescript",
       "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
     },
     {
-      "title": "型アサーションとの付き合い方",
-      "url": "https://zenn.dev/tnyo43/articles/150b935a2fac17",
+      "title": "自作マイルストーン管理ツール作成日誌",
+      "url": "https://zenn.dev/klo/books/4f8d4cc6bad80d",
       "publishedAt": {
-        "start": "2026-04-30"
+        "start": "2026-05-03"
       },
       "updatedAt": {
-        "start": "2026-04-30"
+        "start": "2026-05-03"
       },
       "sourceName": "Zenn Typescript",
+      "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
+    },
+    {
+      "title": "How to Use Claude Code Without Shipping AI Bugs to Production",
+      "url": "https://zenn.dev/neotechpark/articles/cdd47b897d0ed7",
+      "publishedAt": {
+        "start": "2026-05-03"
+      },
+      "updatedAt": {
+        "start": "2026-05-03"
+      },
+      "sourceName": "Zenn Vitest",
       "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
     },
     {
@@ -476,15 +488,183 @@
       "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
     },
     {
-      "title": "Vue 3 + TypeScript で外部ライブラリなしの折れ線グラフを作ってみた",
-      "url": "https://zenn.dev/hina_dev/articles/vue-svg-weight-chart-no-library",
+      "title": "Next.jsをAWS Amplifyで動かしてみて分かったこと",
+      "url": "https://zenn.dev/38_38/articles/8e39545afd4fa1",
       "publishedAt": {
-        "start": "2026-03-04"
+        "start": "2026-05-04"
       },
       "updatedAt": {
-        "start": "2026-03-04"
+        "start": "2026-05-04"
       },
-      "sourceName": "Zenn Vitest",
+      "sourceName": "Zenn Next.js",
+      "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
+    },
+    {
+      "title": "個人開発者のセキュリティ設計 — AIに任せながら、AIを信じすぎない",
+      "url": "https://zenn.dev/yt8220/articles/ca06ae47d99903",
+      "publishedAt": {
+        "start": "2026-05-04"
+      },
+      "updatedAt": {
+        "start": "2026-05-04"
+      },
+      "sourceName": "Zenn Next.js",
+      "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
+    },
+    {
+      "title": "個人開発を始めて4ヶ月、2つ目のアプリが完成したので公開します",
+      "url": "https://zenn.dev/morijava/articles/38e5af7d1f4374",
+      "publishedAt": {
+        "start": "2026-05-04"
+      },
+      "updatedAt": {
+        "start": "2026-05-04"
+      },
+      "sourceName": "Zenn Next.js",
+      "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
+    },
+    {
+      "title": "Build Log #1：不動産業者向けSaaSをClaude Codeで5日で本番リリースした全工程",
+      "url": "https://zenn.dev/mintototo1/articles/buildlog-01-realestate-saas-5days",
+      "publishedAt": {
+        "start": "2026-05-03"
+      },
+      "updatedAt": {
+        "start": "2026-05-03"
+      },
+      "sourceName": "Zenn Next.js",
+      "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
+    },
+    {
+      "title": "Next.js 16 Turbopack と Claude in Chrome の組み合わせで VS Code が 180GB に見えた話",
+      "url": "https://zenn.dev/m_naoki_m/articles/cc440272b8d0a3",
+      "publishedAt": {
+        "start": "2026-05-03"
+      },
+      "updatedAt": {
+        "start": "2026-05-03"
+      },
+      "sourceName": "Zenn Next.js",
+      "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
+    },
+    {
+      "title": "GitHub Copilotをオセロアプリを作りながら試してみた",
+      "url": "https://zenn.dev/shinjiro126/articles/39ee8601387278",
+      "publishedAt": {
+        "start": "2026-05-03"
+      },
+      "updatedAt": {
+        "start": "2026-05-03"
+      },
+      "sourceName": "Zenn Next.js",
+      "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
+    },
+    {
+      "title": "Next.js + FastAPIでFXシグナルダッシュボードを自作した",
+      "url": "https://zenn.dev/kohatsu/articles/c3fc5b51e07ace",
+      "publishedAt": {
+        "start": "2026-05-03"
+      },
+      "updatedAt": {
+        "start": "2026-05-03"
+      },
+      "sourceName": "Zenn Next.js",
+      "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
+    },
+    {
+      "title": "Next.js App Routerで構造化データ（JSON-LD）を自動生成する実装ガイド",
+      "url": "https://zenn.dev/sktt_panda/articles/nextjs-json-ld-structured-data",
+      "publishedAt": {
+        "start": "2026-05-02"
+      },
+      "updatedAt": {
+        "start": "2026-05-02"
+      },
+      "sourceName": "Zenn Next.js",
+      "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
+    },
+    {
+      "title": "Notionをバックエンドに、Next.js + Fitbit + Gemini AIで作る個人フィットネストラッカー\"",
+      "url": "https://zenn.dev/fune/articles/045d526730555b",
+      "publishedAt": {
+        "start": "2026-05-02"
+      },
+      "updatedAt": {
+        "start": "2026-05-02"
+      },
+      "sourceName": "Zenn Next.js",
+      "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
+    },
+    {
+      "title": "Claude Code が出した提案を却下する技術 - 個人開発SaaSをDDDで作りながら学んだこと",
+      "url": "https://zenn.dev/takepon7/articles/3dd56bd4c46304",
+      "publishedAt": {
+        "start": "2026-05-02"
+      },
+      "updatedAt": {
+        "start": "2026-05-02"
+      },
+      "sourceName": "Zenn Next.js",
+      "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
+    },
+    {
+      "title": "Date.now() がビルドエラーになる理由から理解する Next.js の Cache Components と PPR",
+      "url": "https://zenn.dev/chronoll/articles/ce938206da753d",
+      "publishedAt": {
+        "start": "2026-05-02"
+      },
+      "updatedAt": {
+        "start": "2026-05-02"
+      },
+      "sourceName": "Zenn Next.js",
+      "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
+    },
+    {
+      "title": "AIで爆速Mermaid図生成！ローカル動作のデスクトップアプリを作った",
+      "url": "https://zenn.dev/nuldev0/articles/717010cc00f7da",
+      "publishedAt": {
+        "start": "2026-05-02"
+      },
+      "updatedAt": {
+        "start": "2026-05-02"
+      },
+      "sourceName": "Zenn Next.js",
+      "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
+    },
+    {
+      "title": "なぜ大規模ではバレルエクスポートが使えないのか ー 中・小規模では使えるのか",
+      "url": "https://zenn.dev/fujishu/articles/c7c7799140b488",
+      "publishedAt": {
+        "start": "2026-05-02"
+      },
+      "updatedAt": {
+        "start": "2026-05-02"
+      },
+      "sourceName": "Zenn Next.js",
+      "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
+    },
+    {
+      "title": "`useEffect` の第2引数（依存配列）を空にしていい場面・してはいけない場面——しまなみガイドの実装から整理した",
+      "url": "https://zenn.dev/hiroki0304/articles/useeffect-deps-when-to-use-empty",
+      "publishedAt": {
+        "start": "2026-05-02"
+      },
+      "updatedAt": {
+        "start": "2026-05-02"
+      },
+      "sourceName": "Zenn Next.js",
+      "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
+    },
+    {
+      "title": "【Firebase】Firebase HostingにReactアプリをデプロイする",
+      "url": "https://zenn.dev/lunette/articles/df2c30afe13161",
+      "publishedAt": {
+        "start": "2026-05-03"
+      },
+      "updatedAt": {
+        "start": "2026-05-03"
+      },
+      "sourceName": "Zenn Vite",
       "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
     },
     {
@@ -716,385 +896,133 @@
       "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
     },
     {
-      "title": "[Rox Blog] Rox v2026.4.1 リリース - 絵文字体験の刷新と安定性の向上",
-      "url": "https://zenn.dev/sasapiyo/articles/1ccf1ad0b16681",
+      "title": "【SWR】SWRの使い方を超絶シンプルに整理する",
+      "url": "https://zenn.dev/yuitonn/articles/5018829bfc6205",
       "publishedAt": {
-        "start": "2026-04-10"
+        "start": "2026-05-04"
       },
       "updatedAt": {
-        "start": "2026-04-10"
-      },
-      "sourceName": "Zenn Vite",
-      "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
-    },
-    {
-      "title": "個人開発SaaSの支払い失敗リカバリー — Stripe Dunning × Supabase で不本意チャーンを自動回収する",
-      "url": "https://zenn.dev/joemike/articles/indie-dev-dunning-management-2026",
-      "publishedAt": {
-        "start": "2026-05-01"
-      },
-      "updatedAt": {
-        "start": "2026-05-01"
-      },
-      "sourceName": "Zenn Next.js",
-      "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
-    },
-    {
-      "title": "4週間で個人開発 SaaS 作って Product Hunt にローンチしたら upvote 3 だった話 📉",
-      "url": "https://zenn.dev/ykiki/articles/3d03600c89f3d5",
-      "publishedAt": {
-        "start": "2026-05-01"
-      },
-      "updatedAt": {
-        "start": "2026-05-01"
-      },
-      "sourceName": "Zenn Next.js",
-      "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
-    },
-    {
-      "title": "Amplify Gen2 x Next.jsでgoogle認証を実装する",
-      "url": "https://zenn.dev/kts_4/articles/b8b7664d404600",
-      "publishedAt": {
-        "start": "2026-05-01"
-      },
-      "updatedAt": {
-        "start": "2026-05-01"
-      },
-      "sourceName": "Zenn Next.js",
-      "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
-    },
-    {
-      "title": "「あと誰が未回答？」をなくしたくて出欠管理ツールを作った話",
-      "url": "https://zenn.dev/hiromoo/articles/53d5ec4ced8150",
-      "publishedAt": {
-        "start": "2026-05-01"
-      },
-      "updatedAt": {
-        "start": "2026-05-01"
-      },
-      "sourceName": "Zenn Next.js",
-      "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
-    },
-    {
-      "title": "JavaScript Blob・ArrayBuffer・Web Worker 完全ガイド — ブラウザ完結ファイル処理の設計パターン",
-      "url": "https://zenn.dev/sktt_panda/articles/browser-file-processing-patterns",
-      "publishedAt": {
-        "start": "2026-05-01"
-      },
-      "updatedAt": {
-        "start": "2026-05-01"
-      },
-      "sourceName": "Zenn Next.js",
-      "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
-    },
-    {
-      "title": "Claude Code × Supabaseでフルスタックアプリを作る方法｜認証・DB・リアルタイム",
-      "url": "https://zenn.dev/rcn_article/articles/rc-supabase-fullstack",
-      "publishedAt": {
-        "start": "2026-05-01"
-      },
-      "updatedAt": {
-        "start": "2026-05-01"
-      },
-      "sourceName": "Zenn Next.js",
-      "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
-    },
-    {
-      "title": "【非エンジニアの個人開発】旅行先でのランニング距離が分からない問題を解決する地図アプリを作った話",
-      "url": "https://zenn.dev/zann_tomoya/articles/2cdb0b1fee5ca2",
-      "publishedAt": {
-        "start": "2026-05-01"
-      },
-      "updatedAt": {
-        "start": "2026-05-01"
-      },
-      "sourceName": "Zenn Next.js",
-      "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
-    },
-    {
-      "title": "Welcomeメール1通を送るために踏んだ3つの罠 — Vercel / Redis / Resend",
-      "url": "https://zenn.dev/ze1ny/articles/welcome-email-3-traps",
-      "publishedAt": {
-        "start": "2026-05-01"
-      },
-      "updatedAt": {
-        "start": "2026-05-01"
-      },
-      "sourceName": "Zenn Next.js",
-      "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
-    },
-    {
-      "title": "20,000ページのNext.js sitemapをVercelのビルド制限をぐぐり抜けて生成する",
-      "url": "https://zenn.dev/tamat_llc/articles/nextjs-massive-sitemap-on-vercel",
-      "publishedAt": {
-        "start": "2026-04-30"
-      },
-      "updatedAt": {
-        "start": "2026-04-30"
-      },
-      "sourceName": "Zenn Next.js",
-      "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
-    },
-    {
-      "title": "AIで初めてアプリを作ったから見てほしい",
-      "url": "https://zenn.dev/maroon256/articles/cff97e834faad9",
-      "publishedAt": {
-        "start": "2026-04-30"
-      },
-      "updatedAt": {
-        "start": "2026-04-30"
-      },
-      "sourceName": "Zenn Next.js",
-      "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
-    },
-    {
-      "title": "個人開発の無料Webツール集を1ヶ月運営した結果。ツール80個・ガイド記事45本・AdSense2連敗のリアル",
-      "url": "https://zenn.dev/sktt_panda/articles/panda-tools-1month-report",
-      "publishedAt": {
-        "start": "2026-04-30"
-      },
-      "updatedAt": {
-        "start": "2026-04-30"
-      },
-      "sourceName": "Zenn Next.js",
-      "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
-    },
-    {
-      "title": "Next.jsのPPR (Partial Prerendering) が切り拓く、爆速AIアプリケーションの未来",
-      "url": "https://zenn.dev/nijima/articles/b7d3bd5e2e7522",
-      "publishedAt": {
-        "start": "2026-04-30"
-      },
-      "updatedAt": {
-        "start": "2026-04-30"
-      },
-      "sourceName": "Zenn Next.js",
-      "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
-    },
-    {
-      "title": "予約データだけでは掴めないゲストの実像を、ホテル現場で記録するツール開発",
-      "url": "https://zenn.dev/7garden/articles/1b877dd12d184f",
-      "publishedAt": {
-        "start": "2026-04-30"
-      },
-      "updatedAt": {
-        "start": "2026-04-30"
-      },
-      "sourceName": "Zenn Next.js",
-      "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
-    },
-    {
-      "title": "Next.js + SupabaseアプリをVercelに公開した手順と、環境変数の改行で詰まった話",
-      "url": "https://zenn.dev/noriyuk/articles/76a0e042acf676",
-      "publishedAt": {
-        "start": "2026-04-29"
-      },
-      "updatedAt": {
-        "start": "2026-04-29"
-      },
-      "sourceName": "Zenn Next.js",
-      "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
-    },
-    {
-      "title": "Supabaseって結局何をしてくれるの？ 非エンジニアが自分専用アプリ用に整理してみる",
-      "url": "https://zenn.dev/noriyuk/articles/5e77a0c7317987",
-      "publishedAt": {
-        "start": "2026-04-29"
-      },
-      "updatedAt": {
-        "start": "2026-04-29"
-      },
-      "sourceName": "Zenn Next.js",
-      "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
-    },
-    {
-      "title": "Next.jsのエラーに感謝 ― レンダリング制約がコードを守る理由",
-      "url": "https://zenn.dev/fujishu/articles/304f3a98c952ff",
-      "publishedAt": {
-        "start": "2026-04-29"
-      },
-      "updatedAt": {
-        "start": "2026-04-29"
-      },
-      "sourceName": "Zenn Next.js",
-      "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
-    },
-    {
-      "title": "Next.js + @react-pdf/renderer で日本語PDFレポートを生成する",
-      "url": "https://zenn.dev/orectic/articles/react-pdf-renderer-japanese-pdf",
-      "publishedAt": {
-        "start": "2026-04-29"
-      },
-      "updatedAt": {
-        "start": "2026-04-29"
-      },
-      "sourceName": "Zenn Next.js",
-      "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
-    },
-    {
-      "title": "サブスクリプション管理アプリをCASA認証取得＆ドリップ支出検知機能実装まで育てた話",
-      "url": "https://zenn.dev/ukei/articles/4f2f125f9dbe15",
-      "publishedAt": {
-        "start": "2026-05-01"
-      },
-      "updatedAt": {
-        "start": "2026-05-01"
+        "start": "2026-05-04"
       },
       "sourceName": "Zenn React",
       "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
     },
     {
-      "title": "なぜ shadcn/ui なのか？ Tailwind CSSとの関係から読み解く選ばれる理由",
-      "url": "https://zenn.dev/seekseep/articles/why-shadcn-ui-with-tailwindcss",
+      "title": "Cloudflare で個人開発するなら、Next.js より React + Vite を選ぶ理由",
+      "url": "https://zenn.dev/fujimori53/articles/b40379f2538aa1",
       "publishedAt": {
-        "start": "2026-05-01"
+        "start": "2026-05-04"
       },
       "updatedAt": {
-        "start": "2026-05-01"
+        "start": "2026-05-04"
       },
       "sourceName": "Zenn React",
       "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
     },
     {
-      "title": "思いつきで売上予測ツールを躓きながらも作ったら本当に動いてしまった話",
-      "url": "https://zenn.dev/mecharhythm/articles/d07d9d01f105f5",
+      "title": "ReAct: Synergizing Reasoning and Acting in Language Modelsの論文を読んでみた",
+      "url": "https://zenn.dev/tech_taka/articles/d81db2f45268f0",
       "publishedAt": {
-        "start": "2026-05-01"
+        "start": "2026-05-04"
       },
       "updatedAt": {
-        "start": "2026-05-01"
+        "start": "2026-05-04"
       },
       "sourceName": "Zenn React",
       "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
     },
     {
-      "title": "ソフトウェアアーキテクチャをStorybook(Reagraph)で可視化する",
-      "url": "https://zenn.dev/hiromichinomata/articles/5de486fb06d6eb",
+      "title": "Claude Opus 4.7のReact習熟度をeffort=maxで測る、ついでにOpus 4.6の劣化説も検証",
+      "url": "https://zenn.dev/uhyo/articles/react-profession-bench-5",
       "publishedAt": {
-        "start": "2026-04-30"
+        "start": "2026-05-04"
       },
       "updatedAt": {
-        "start": "2026-04-30"
+        "start": "2026-05-04"
+      },
+      "sourceName": "Zenn React",
+      "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
+    },
+    {
+      "title": "Vite + React でフォーム入力を5パターンで学ぶ",
+      "url": "https://zenn.dev/ilumination1879/articles/ecad121c3cec2d",
+      "publishedAt": {
+        "start": "2026-05-04"
+      },
+      "updatedAt": {
+        "start": "2026-05-04"
       },
       "sourceName": "Zenn React",
       "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
     },
     {
       "title": "売上予測WebアプリをFastAPI + Prophet + Reactで個人開発してリリースした話",
-      "url": "https://zenn.dev/mecharhythm/articles/dde20a7d085506",
+      "url": "https://zenn.dev/mecharhythm/articles/f9e695bb6b7865",
       "publishedAt": {
-        "start": "2026-04-30"
+        "start": "2026-05-04"
       },
       "updatedAt": {
-        "start": "2026-04-30"
+        "start": "2026-05-04"
       },
       "sourceName": "Zenn React",
       "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
     },
     {
-      "title": "Plotly.js v2 → v3 で変わったこと、ハマりポイントをまとめた",
-      "url": "https://zenn.dev/ui_memo/articles/1df50c3fd7bd5d",
+      "title": "スバラシティ風パズルゲームをReactで作った話🎮 — バイク38車種が合体するブラウザゲーム",
+      "url": "https://zenn.dev/ausssxi/articles/3ce201f785c286",
       "publishedAt": {
-        "start": "2026-04-30"
+        "start": "2026-05-03"
       },
       "updatedAt": {
-        "start": "2026-04-30"
+        "start": "2026-05-03"
       },
       "sourceName": "Zenn React",
       "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
     },
     {
-      "title": "Laravel × Amazon SQS 実践入門",
-      "url": "https://zenn.dev/sonicmoov/articles/b7ea434778600e",
+      "title": "【個人開発】2026/12までにアプリを2つリリースする",
+      "url": "https://zenn.dev/coffeine_akky/articles/a2abb21e550550",
       "publishedAt": {
-        "start": "2026-04-30"
+        "start": "2026-05-03"
       },
       "updatedAt": {
-        "start": "2026-04-30"
+        "start": "2026-05-03"
       },
       "sourceName": "Zenn React",
       "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
     },
     {
-      "title": "AIに個人情報を貼り付ける前にマスクする macOS アプリ「MaskPaste」を作って公開してみた",
-      "url": "https://zenn.dev/nuintee/articles/5985262cda2a61",
+      "title": "「どのグラフを使えばいい？」用途別チャート選びガイド【20種類】",
+      "url": "https://zenn.dev/ui_memo/articles/01685b9ea72329",
       "publishedAt": {
-        "start": "2026-04-30"
+        "start": "2026-05-03"
       },
       "updatedAt": {
-        "start": "2026-04-30"
+        "start": "2026-05-03"
       },
       "sourceName": "Zenn React",
       "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
     },
     {
-      "title": "`Promise.all` で複数APIを並列フェッチしつつ、1件失敗しても残りを使う設計——しまなみガイドのバス時刻表実装から",
-      "url": "https://zenn.dev/hiroki0304/articles/promise-all-partial-failure",
+      "title": "Expo,React Nativeに詳しくなりたければこれを見ろ",
+      "url": "https://zenn.dev/mu_tomoya/articles/851215d59d5093",
       "publishedAt": {
-        "start": "2026-04-29"
+        "start": "2026-05-03"
       },
       "updatedAt": {
-        "start": "2026-04-29"
+        "start": "2026-05-03"
       },
       "sourceName": "Zenn React",
       "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
     },
     {
-      "title": "Claude Code × Remotion で社内プレゼン動画を5分で作った話",
-      "url": "https://zenn.dev/tempeso/articles/2ac3be6a933bb1",
+      "title": "ゴーストジョブ（幽霊求人）を自動検出するChrome拡張を作った話 — GhostJob",
+      "url": "https://zenn.dev/ktg/articles/ghostjob-detector-chrome-ext",
       "publishedAt": {
-        "start": "2026-04-29"
+        "start": "2026-05-02"
       },
       "updatedAt": {
-        "start": "2026-04-29"
-      },
-      "sourceName": "Zenn React",
-      "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
-    },
-    {
-      "title": "AIで経費精算アプリを作ってわかった生成コードレビューの注意点",
-      "url": "https://zenn.dev/haragames/articles/ai-generated-code-review-genspark",
-      "publishedAt": {
-        "start": "2026-04-29"
-      },
-      "updatedAt": {
-        "start": "2026-04-29"
-      },
-      "sourceName": "Zenn React",
-      "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
-    },
-    {
-      "title": "\"array[i++] = null; は本当に GC を促進するのか — Node.js で実測して確かめる",
-      "url": "https://zenn.dev/wakame_atsushi/articles/e9b754160d1469",
-      "publishedAt": {
-        "start": "2026-04-29"
-      },
-      "updatedAt": {
-        "start": "2026-04-29"
-      },
-      "sourceName": "Zenn React",
-      "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
-    },
-    {
-      "title": "自分そっくりのチェスボットを作って、ルールを無視するChatGPTと対戦しよう",
-      "url": "https://zenn.dev/si_thu_tun/articles/2f9412db6ec017",
-      "publishedAt": {
-        "start": "2026-04-29"
-      },
-      "updatedAt": {
-        "start": "2026-04-29"
-      },
-      "sourceName": "Zenn React",
-      "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
-    },
-    {
-      "title": "UIの面倒、実はDBの問題だった ― Local-First と Instant が示す Web 開発の未来",
-      "url": "https://zenn.dev/sc30gsw/articles/a39bd748caa861",
-      "publishedAt": {
-        "start": "2026-04-29"
-      },
-      "updatedAt": {
-        "start": "2026-04-29"
+        "start": "2026-05-02"
       },
       "sourceName": "Zenn React",
       "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
