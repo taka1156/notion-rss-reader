@@ -8,6 +8,18 @@
   ],
   "entries": [
     {
+      "title": "テストはどこまで書けばいいのか、個人開発で見つけた3つの線引き",
+      "url": "https://zenn.dev/matsutake_prgrm/articles/test-how-much-to-write",
+      "publishedAt": {
+        "start": "2026-07-31"
+      },
+      "updatedAt": {
+        "start": "2026-07-31"
+      },
+      "sourceName": "Zenn Vitest",
+      "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
+    },
+    {
       "title": "vi.mockの時限爆弾——exportを1つ足したら無関係なテストが全滅した",
       "url": "https://zenn.dev/generald/articles/vitest-vi-mock-factory-time-bomb",
       "publishedAt": {
@@ -231,18 +243,6 @@
       },
       "updatedAt": {
         "start": "2026-06-02"
-      },
-      "sourceName": "Zenn Vitest",
-      "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
-    },
-    {
-      "title": "AIスキルを「育てる」 ── 反復改善でコード自動生成の品質を上げた話",
-      "url": "https://zenn.dev/kini/articles/7fae915d406851",
-      "publishedAt": {
-        "start": "2026-05-29"
-      },
-      "updatedAt": {
-        "start": "2026-05-29"
       },
       "sourceName": "Zenn Vitest",
       "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
@@ -488,6 +488,18 @@
       "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
     },
     {
+      "title": "AIでホームページを自作する全手順",
+      "url": "https://zenn.dev/kakusan2022/articles/a4fe4024882114",
+      "publishedAt": {
+        "start": "2026-08-01"
+      },
+      "updatedAt": {
+        "start": "2026-08-01"
+      },
+      "sourceName": "Zenn Next.js",
+      "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
+    },
+    {
       "title": "画像→動画の初回体験を13クレジットに収める設計 — Grok Imagine 1.5導入",
       "url": "https://zenn.dev/mict/articles/0249756aa265c7",
       "publishedAt": {
@@ -500,7 +512,7 @@
       "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
     },
     {
-      "title": "Whisperのword timestampsで文単位再生を実現するまで",
+      "title": "Whisperのword timestampsでシャドーイング教材を作るときにハマったこと",
       "url": "https://zenn.dev/sochi/articles/155e0f9b6bbe52",
       "publishedAt": {
         "start": "2026-07-31"
@@ -704,15 +716,15 @@
       "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
     },
     {
-      "title": "NextJsフロントエンド開発",
-      "url": "https://zenn.dev/ifha/articles/a60d2339d08ffa",
+      "title": "VueのemitとReactのコールバックpropsは何が違うのか",
+      "url": "https://zenn.dev/tonbi_attack/articles/04f3e4cd67b309",
       "publishedAt": {
-        "start": "2026-07-29"
+        "start": "2026-08-01"
       },
       "updatedAt": {
-        "start": "2026-07-29"
+        "start": "2026-08-01"
       },
-      "sourceName": "Zenn Next.js",
+      "sourceName": "Zenn React",
       "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
     },
     {
@@ -812,6 +824,18 @@
       "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
     },
     {
+      "title": "NextJsフロントエンド開発",
+      "url": "https://zenn.dev/ifha/articles/a60d2339d08ffa",
+      "publishedAt": {
+        "start": "2026-07-29"
+      },
+      "updatedAt": {
+        "start": "2026-07-29"
+      },
+      "sourceName": "Zenn React",
+      "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
+    },
+    {
       "title": "「ユースケース別の対応表」の落とし穴 — 予備知識ゼロのAIが誤誘導された6パターン",
       "url": "https://zenn.dev/uixhero_jp/articles/gunjo-yattemita-matome-01-index-traps",
       "publishedAt": {
@@ -848,15 +872,39 @@
       "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
     },
     {
-      "title": "JavaScript の実行途中をどうやって可視化して巻き戻すんや？ (DSA View View 👀👀)",
-      "url": "https://zenn.dev/nyaomaru/articles/dsa-view-view-runtime-visualization",
+      "title": "Angularのinput()・output()・model()の使い分け",
+      "url": "https://zenn.dev/zzzzzzz/articles/9b2e57a1c48d3f",
       "publishedAt": {
-        "start": "2026-07-28"
+        "start": "2026-08-01"
       },
       "updatedAt": {
-        "start": "2026-07-28"
+        "start": "2026-08-01"
       },
-      "sourceName": "Zenn React",
+      "sourceName": "Zenn Typescript",
+      "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
+    },
+    {
+      "title": "AWS CDK:環境別スタックの作成手順~contextを使ってdev/prodのスタック設定を切り替える",
+      "url": "https://zenn.dev/hknote/articles/cdk-context-env-stack",
+      "publishedAt": {
+        "start": "2026-08-01"
+      },
+      "updatedAt": {
+        "start": "2026-08-01"
+      },
+      "sourceName": "Zenn Typescript",
+      "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
+    },
+    {
+      "title": "DuckDB-Wasmは、CSV加工の実行基盤として使えるか",
+      "url": "https://zenn.dev/clavisflow/articles/535aacca18545c",
+      "publishedAt": {
+        "start": "2026-08-01"
+      },
+      "updatedAt": {
+        "start": "2026-08-01"
+      },
+      "sourceName": "Zenn Typescript",
       "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
     },
     {
@@ -898,18 +946,6 @@
     {
       "title": "AIエージェント向けナレッジにもPull Requestが必要だと思った",
       "url": "https://zenn.dev/surugawannoebi/articles/ai-knowledge-needs-pull-requests",
-      "publishedAt": {
-        "start": "2026-07-31"
-      },
-      "updatedAt": {
-        "start": "2026-07-31"
-      },
-      "sourceName": "Zenn Typescript",
-      "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
-    },
-    {
-      "title": "テストはどこまで書けばいいのか、個人開発で見つけた3つの線引き",
-      "url": "https://zenn.dev/matsutake_prgrm/articles/test-how-much-to-write",
       "publishedAt": {
         "start": "2026-07-31"
       },
@@ -1011,30 +1047,6 @@
       },
       "updatedAt": {
         "start": "2026-07-31"
-      },
-      "sourceName": "Zenn Typescript",
-      "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
-    },
-    {
-      "title": "Web Streams API 入門 ― 基本概念から実践まで",
-      "url": "https://zenn.dev/cybozu_frontend/articles/web-streams-api-guide",
-      "publishedAt": {
-        "start": "2026-07-30"
-      },
-      "updatedAt": {
-        "start": "2026-07-30"
-      },
-      "sourceName": "Zenn Typescript",
-      "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
-    },
-    {
-      "title": "日本語タイピングゲームを作ると必ずぶつかる、ローマ字入力の「複数の正解」問題",
-      "url": "https://zenn.dev/shake0903/articles/2b14af65343c6e",
-      "publishedAt": {
-        "start": "2026-07-30"
-      },
-      "updatedAt": {
-        "start": "2026-07-30"
       },
       "sourceName": "Zenn Typescript",
       "cover": "https://images.microcms-assets.io/assets/ed840bb775fe400dae402a2340344206/15418d178c9c4b6da79aed596eb451f1/zenn.webp"
